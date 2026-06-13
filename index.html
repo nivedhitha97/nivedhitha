@@ -3,118 +3,272 @@
   <title>Nivedhitha Parthasarathy — Senior Mobile Engineer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Linear-style typography -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Spectral:wght@400;600&display=swap"
+    rel="stylesheet">
+
   <style>
     :root {
-      --bg-gradient: radial-gradient(circle at top left, #e0f2fe 0, #eef2ff 30%, #f8fafc 70%);
-      --card-bg: #ffffff;
+      /* Linear-style color system */
+      --bg: #ffffff;
+      --bg-soft: #f8fafc;
+      --bg-gradient: radial-gradient(circle at top left, #f0f4ff 0%, #ffffff 60%);
       --text-main: #0f172a;
-      --text-sub: #64748b;
-      --accent: #4f46e5;
-      --border-soft: #e2e8f0;
-      --shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.18);
-      --radius-lg: 22px;
-      --radius-md: 16px;
-      --radius-pill: 999px;
+      --text-sub: #475569;
+      --border: #e2e8f0;
+      --accent: #10b981;
+      /* emerald */
+      --accent-soft: rgba(16, 185, 129, 0.12);
+
+      /* Linear-style spacing scale */
+      --space-1: 0.4rem;
+      --space-2: 0.8rem;
+      --space-3: 1.2rem;
+      --space-4: 1.8rem;
+      --space-5: 2.6rem;
+      --space-6: 3.8rem;
+
+      /* Linear-style radii */
+      --radius-md: 14px;
+      --radius-lg: 20px;
+
+      /* Linear-style shadows */
+      --shadow-card: 0 12px 32px rgba(15, 23, 42, 0.08);
+      --shadow-card-active: 0 28px 80px rgba(15, 23, 42, 0.18);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      font-family: Inter, system-ui, sans-serif;
       background: var(--bg-gradient);
       color: var(--text-main);
       -webkit-font-smoothing: antialiased;
-      background-attachment: fixed;
+      padding-bottom: 6rem;
     }
 
     main {
-      max-width: 1120px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 2.5rem 1.5rem 4rem;
+      padding: var(--space-5) var(--space-3);
     }
 
-    /* HERO NAME — premium animation */
+    /* TYPOGRAPHY — Linear scale */
+    h1 {
+      font-family: Spectral, serif;
+      font-size: 3.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: var(--space-2);
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: var(--space-1);
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--text-sub);
+    }
+
+    /* HERO — Linear spacing */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--space-6);
+      align-items: center;
+      margin-bottom: var(--space-6);
+    }
+
+    /* HERO NAME — premium minimal animation */
     .hero-name {
-      font-size: 2.8rem;
-      font-weight: 750;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.4rem;
-      display: inline-block;
-      position: relative;
+      font-family: Spectral, serif;
+      font-size: 3.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
       opacity: 0;
-      animation: nameReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+      transform: translateY(10px);
+      animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    @keyframes nameReveal {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
     }
 
-    .hero-name::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      height: 2px;
-      width: 0%;
-      background: linear-gradient(90deg, #4f46e5, #22c55e);
-      border-radius: 999px;
-      animation: underlineShimmer 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.6s;
+    .hero-pill {
+      display: inline-flex;
+      gap: var(--space-1);
+      background: var(--accent-soft);
+      padding: 0.45rem 0.9rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
     }
 
-    @keyframes underlineShimmer {
-      from { width: 0%; }
-      to { width: 100%; }
+    .hero-title {
+      font-size: 1.6rem;
+      font-weight: 500;
+      max-width: 32rem;
+      line-height: 1.35;
     }
 
-    /* WORK SECTION — premium depth + parallax */
-    .work-card {
-      flex: 0 0 88%;
-      max-width: 88%;
-      background: var(--card-bg);
+    .hero-sub {
+      max-width: 34rem;
+      font-size: 1.05rem;
+      color: var(--text-sub);
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: var(--space-2);
+      margin-top: var(--space-2);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      padding: 0.7rem 1.4rem;
+      border-radius: var(--radius-md);
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: #0ea271;
+    }
+
+    .btn-ghost {
+      padding: 0.7rem 1.4rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 500;
+      background: white;
+      transition: all 0.2s ease;
+    }
+
+    .btn-ghost:hover {
+      background: var(--bg-soft);
+    }
+
+    .hero-device {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-device-inner {
+      width: 100%;
+      max-width: 360px;
       border-radius: var(--radius-lg);
-      border: 1px solid var(--border-soft);
-      padding: 1.6rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transform: translateY(12px);
+      opacity: 0;
+      animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s;
+    }
+
+    .hero-device-inner img {
+      width: 100%;
+      display: block;
+    }
+
+    .work-heading {
+      font-size: 1.9rem;
+      font-weight: 600;
+      margin-bottom: var(--space-1);
+    }
+
+    .work-sub {
+      font-size: 1.05rem;
+      color: var(--text-sub);
+      margin-bottom: var(--space-4);
+    }
+
+    .work-track-wrapper {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: var(--space-4);
+    }
+
+    .work-track {
+      display: flex;
+      gap: var(--space-4);
+      padding: var(--space-2);
+    }
+
+    .work-card {
+      flex: 0 0 72%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.6rem;
+      gap: var(--space-4);
       scroll-snap-align: center;
+      box-shadow: var(--shadow-card);
       transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .work-card.active {
-      transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 32px 80px rgba(15, 23, 42, 0.28);
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: var(--shadow-card-active);
       opacity: 1;
-      filter: none;
     }
 
     .work-card:not(.active) {
-      transform: translateY(6px) scale(0.92);
-      filter: blur(3px);
-      opacity: 0.35;
+      transform: translateY(6px) scale(0.94);
+      opacity: 0.4;
+      filter: blur(2px);
     }
 
-    /* Device parallax */
     .work-device-inner {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
       transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .work-card.active .work-device-inner {
-      transform: translateY(-4px) scale(1.06);
+      transform: translateY(-6px) scale(1.06);
     }
 
     .work-card:not(.active) .work-device-inner {
-      transform: translateY(4px) scale(0.94);
+      transform: translateY(6px) scale(0.92);
     }
 
-    /* Content reveal */
+    .work-content h3,
+    .work-content p,
+    .work-tags {
+      transition: opacity 0.4s ease-out 0.15s, transform 0.4s ease-out 0.15s;
+    }
+
     .work-card.active h3,
     .work-card.active p,
     .work-card.active .work-tags {
       opacity: 1;
       transform: translateY(0);
-      transition: opacity 0.4s ease-out 0.15s, transform 0.4s ease-out 0.15s;
     }
 
     .work-card:not(.active) h3,
@@ -123,26 +277,226 @@
       opacity: 0;
       transform: translateY(12px);
     }
+
+    .work-tags {
+      display: flex;
+      gap: var(--space-1);
+      margin-top: var(--space-2);
+    }
+
+    .work-tags span {
+      background: var(--bg-soft);
+      padding: 0.35rem 0.7rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      border: 1px solid var(--border);
+    }
+
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* WORK SECTION — Linear card style */
+    .work-track-wrapper {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: var(--space-4);
+    }
+
+    .work-track {
+      display: flex;
+      gap: var(--space-4);
+      padding: var(--space-2);
+    }
+
+    .work-card {
+      flex: 0 0 72%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      scroll-snap-align: center;
+      box-shadow: var(--shadow-card);
+      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .work-card.active {
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: var(--shadow-card-active);
+      opacity: 1;
+    }
+
+    .work-card:not(.active) {
+      transform: translateY(6px) scale(0.94);
+      opacity: 0.4;
+      filter: blur(2px);
+    }
+
+    /* Device parallax */
+    .work-device-inner {
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .work-card.active .work-device-inner {
+      transform: translateY(-6px) scale(1.06);
+    }
+
+    .work-card:not(.active) .work-device-inner {
+      transform: translateY(6px) scale(0.92);
+    }
+
+    /* Content reveal */
+    .work-card.active h3,
+    .work-card.active p {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.4s ease-out 0.15s, transform 0.4s ease-out 0.15s;
+    }
+
+    .work-card:not(.active) h3,
+    .work-card:not(.active) p {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+
+    .exp-heading {
+      font-size: 1.9rem;
+      font-weight: 600;
+      margin-bottom: var(--space-3);
+    }
+
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .exp-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      box-shadow: var(--shadow-card);
+    }
+
+    .exp-item h3 {
+      margin-bottom: var(--space-1);
+    }
+
+    .exp-tags {
+      display: flex;
+      gap: var(--space-1);
+      margin-top: var(--space-2);
+    }
+
+    .exp-tags span {
+      background: var(--bg-soft);
+      padding: 0.35rem 0.7rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      border: 1px solid var(--border);
+    }
+
+    .arch-heading {
+      font-size: 1.9rem;
+      font-weight: 600;
+      margin-bottom: var(--space-1);
+    }
+
+    .arch-sub {
+      font-size: 1.05rem;
+      color: var(--text-sub);
+      margin-bottom: var(--space-4);
+      max-width: 36rem;
+    }
+
+    .arch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-4);
+    }
+
+    .arch-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      box-shadow: var(--shadow-card);
+    }
+
+    .contact-heading {
+      font-size: 1.9rem;
+      font-weight: 600;
+      margin-bottom: var(--space-1);
+    }
+
+    .contact-sub {
+      font-size: 1.05rem;
+      color: var(--text-sub);
+      margin-bottom: var(--space-4);
+      max-width: 32rem;
+    }
+
+    .contact-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      margin-bottom: var(--space-3);
+      box-shadow: var(--shadow-card);
+    }
+
+    .contact-box a {
+      color: var(--accent);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .contact-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.8rem 1.6rem;
+      border-radius: var(--radius-md);
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .contact-btn:hover {
+      background: #0ea271;
+    }
   </style>
 </head>
+
 <body>
   <main>
-
     <section class="hero">
-      <div>
+      <div class="hero-content">
         <h1 class="hero-name">Nivedhitha Parthasarathy</h1>
 
         <div class="hero-pill">
           <span>📱 Senior Mobile Engineer</span>
-          <span>React Native & iOS</span>
+          <span>React Native · iOS</span>
         </div>
 
         <h2 class="hero-title">
-          I design and build mobile experiences that feel clear, calm, and production‑ready.
+          I build mobile experiences that feel fast, intentional, and quietly premium.
         </h2>
 
         <p class="hero-sub">
-          I’m a product‑minded engineer who blends architecture, UI feel, and real‑world performance.
+          With 6+ years across telematics, operations, and enterprise mobility, I design and ship apps
+          that balance architecture, UI feel, and real‑world performance. My work blends engineering clarity
+          with product intuition.
         </p>
 
         <div class="hero-cta">
@@ -153,37 +507,81 @@
 
       <div class="hero-device">
         <div class="hero-device-inner">
-          <img src="assets/screenshots/assetmatics-location.png" />
+          <img src="assets/screenshots/assetmatics-location.png" alt="App preview" />
         </div>
       </div>
     </section>
+
     <section id="work" class="work">
+      <h2 class="work-heading">Selected Work</h2>
+      <p class="work-sub">A few products I’ve helped design, build, and ship.</p>
+
       <div class="work-track-wrapper">
         <div class="work-track" id="workTrack">
 
+          <!-- CARD 1 -->
           <article class="work-card active">
             <div class="work-device">
               <div class="work-device-inner">
-                <img src="assets/screenshots/assetmatics-location.png" />
+                <img src="assets/screenshots/assetmatics-location.png" alt="Assetmatics app" />
               </div>
             </div>
-            <div>
-              <h3>Assetmatics — telematics in your pocket</h3>
-              <p>Fleet tracking with clarity and calm UX.</p>
-              <div class="work-tags"><span>React Native</span></div>
+
+            <div class="work-content">
+              <h3>Assetmatics — Telematics in your pocket</h3>
+              <p>
+                A real‑time fleet tracking experience built for clarity.
+                Designed the mobile architecture, UI feel, and performance layer.
+              </p>
+              <div class="work-tags">
+                <span>React Native</span>
+                <span>iOS</span>
+                <span>Architecture</span>
+              </div>
             </div>
           </article>
 
+          <!-- CARD 2 -->
           <article class="work-card">
             <div class="work-device">
               <div class="work-device-inner">
-                <img src="assets/screenshots/fleetlive-dashboard.png" />
+                <img src="assets/screenshots/fleetlive-dashboard.png" alt="Fleetlive app" />
               </div>
             </div>
-            <div>
-              <h3>Fleetlive — operations simplified</h3>
-              <p>Real‑time fleet dashboards.</p>
-              <div class="work-tags"><span>Analytics</span></div>
+
+            <div class="work-content">
+              <h3>Fleetlive — Operations simplified</h3>
+              <p>
+                A dashboard for fleet operations teams.
+                Built the mobile UI system and improved load performance by 40%.
+              </p>
+              <div class="work-tags">
+                <span>Analytics</span>
+                <span>Performance</span>
+                <span>UI Systems</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 3 -->
+          <article class="work-card">
+            <div class="work-device">
+              <div class="work-device-inner">
+                <img src="assets/screenshots/ev-charging.png" alt="EV charging app" />
+              </div>
+            </div>
+
+            <div class="work-content">
+              <h3>EV Charging — Predictable charging UX</h3>
+              <p>
+                Designed a calm, predictable EV charging flow with clear state transitions
+                and a friction‑free user journey.
+              </p>
+              <div class="work-tags">
+                <span>EV</span>
+                <span>UX</span>
+                <span>React Native</span>
+              </div>
             </div>
           </article>
 
@@ -191,33 +589,110 @@
       </div>
     </section>
 
-    <section class="architecture">
-      <h2>How I structure mobile apps</h2>
-      <p>Feature‑oriented, scalable, predictable.</p>
+    <section id="experience" class="experience">
+      <h2 class="exp-heading">Experience</h2>
+
+      <div class="exp-list">
+
+        <div class="exp-item">
+          <h3>Nesh — Senior Software Engineer (React Native)</h3>
+          <p>
+            Built connected‑car and telematics experiences that simplify complex vehicle data for everyday users.
+            Focused on UI clarity, predictable flows, and performance.
+          </p>
+          <div class="exp-tags">
+            <span>React Native</span>
+            <span>iOS</span>
+            <span>Telematics</span>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <h3>Sensiple — System Analyst (iOS & Backend)</h3>
+          <p>
+            Designed and shipped production‑grade mobile features across enterprise mobility, fleet operations,
+            and EV ecosystems. Improved architecture, stability, and release pipelines.
+          </p>
+          <div class="exp-tags">
+            <span>iOS</span>
+            <span>Architecture</span>
+            <span>API Design</span>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <section class="experience">
-      <h2>Experience</h2>
-      <p>Nesh · Sensiple</p>
+    <section id="architecture" class="architecture">
+      <h2 class="arch-heading">How I structure mobile apps</h2>
+      <p class="arch-sub">
+        A predictable, scalable architecture that keeps features isolated, flows clear, and performance stable.
+      </p>
+
+      <div class="arch-grid">
+
+        <div class="arch-card">
+          <h3>Feature‑oriented modules</h3>
+          <p>
+            Screens, logic, and UI live together inside feature folders.
+            Clear boundaries, no cross‑feature leakage.
+          </p>
+        </div>
+
+        <div class="arch-card">
+          <h3>State that behaves</h3>
+          <p>
+            Local UI state stays local.
+            Shared state lives in predictable containers with typed actions.
+          </p>
+        </div>
+
+        <div class="arch-card">
+          <h3>Networking that fails gracefully</h3>
+          <p>
+            A clean API layer with retry logic, caching, and offline‑first patterns.
+          </p>
+        </div>
+
+        <div class="arch-card">
+          <h3>Release‑ready pipeline</h3>
+          <p>
+            OTA updates, crash analytics, automated builds, and stable release channels.
+          </p>
+        </div>
+
+      </div>
     </section>
 
     <section id="contact" class="contact">
-      <h2>Let’s talk</h2>
-      <p>Email: nivedhithapsarati@gmail.com</p>
+      <h2 class="contact-heading">Let’s talk</h2>
+      <p class="contact-sub">
+        I’m always open to discussing mobile engineering, product design, or new opportunities.
+      </p>
+
+      <div class="contact-box">
+        <p>Email</p>
+        <a href="mailto:nivedhithapsarati@gmail.com">nivedhithapsarati@gmail.com</a>
+      </div>
+
+      <a href="mailto:nivedhithapsarati@gmail.com" class="contact-btn">Let’s keep in touch →</a>
     </section>
 
   </main>
+
   <script>
     const track = document.getElementById('workTrack');
     const cards = Array.from(document.querySelectorAll('.work-card'));
-  
+
     function updateActiveCard() {
+      if (!track || !cards.length) return;
+
       const trackRect = track.getBoundingClientRect();
       const centerX = trackRect.left + trackRect.width / 2;
-  
+
       let closest = null;
       let minDist = Infinity;
-  
+
       cards.forEach(card => {
         const rect = card.getBoundingClientRect();
         const cardCenter = rect.left + rect.width / 2;
@@ -227,33 +702,44 @@
           closest = card;
         }
       });
-  
+
+      if (!closest) return;
+
       cards.forEach(c => c.classList.remove('active'));
       closest.classList.add('active');
     }
-  
+
     let ticking = false;
-    track.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          updateActiveCard();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    });
-  
+
+    if (track) {
+      track.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            updateActiveCard();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    }
+
     cards.forEach(card => {
       card.addEventListener('click', () => {
+        if (!track) return;
         const rect = card.getBoundingClientRect();
         const trackRect = track.getBoundingClientRect();
         const offset = rect.left - trackRect.left - (trackRect.width - rect.width) / 2;
-        track.scrollBy({ left: offset, behavior: 'smooth' });
+
+        track.scrollBy({
+          left: offset,
+          behavior: 'smooth'
+        });
       });
     });
-  
+
+    // Initial state
     updateActiveCard();
   </script>
-  </body>
-  </html>
-  
+</body>
+
+</html>
