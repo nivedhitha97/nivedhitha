@@ -1,627 +1,648 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nivedhitha — Senior Mobile Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Inter:wght@400;500;600&display=swap"
-    rel="stylesheet">
-  <style>
-    :root {
-      --bg: #f5f7fb;
-      --surface: #fff;
-      --surface-soft: #f1f5f9;
-      --text: #0f172a;
-      --text-soft: #64748b;
-      --accent: #10b981;
-      --accent-soft: rgba(16, 185, 129, .12);
-      --border: #e2e8f0;
-      --radius-lg: 22px;
-      --radius-md: 16px;
-      --radius-sm: 10px;
-      --shadow-soft: 0 24px 60px rgba(15, 23, 42, .18);
-      --shadow-device: 0 26px 70px rgba(15, 23, 42, .35);
-      --font-serif: 'Spectral', serif;
-      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif
-    }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nivedhitha — Senior Mobile Engineer</title>
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0
-    }
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    body {
-      background: radial-gradient(circle at top, #e5f3ff 0, #f5f7fb 40%, #eef2ff 100%);
-      color: var(--text);
-      font-family: var(--font-sans);
-      line-height: 1.6
-    }
+<style>
+:root{
+  --bg:#f5f7fb;
+  --surface:#fff;
+  --surface-soft:#f1f5f9;
+  --text:#0f172a;
+  --text-soft:#64748b;
+  --accent:#10b981;
+  --accent-soft:rgba(16,185,129,.12);
+  --border:#e2e8f0;
+  --radius-lg:22px;
+  --radius-md:16px;
+  --radius-sm:10px;
+  --shadow-soft:0 24px 60px rgba(15,23,42,.18);
+  --shadow-device:0 26px 70px rgba(15,23,42,.35);
+  --font-serif:'Spectral',serif;
+  --font-sans:'Inter',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+}
 
-    a {
-      text-decoration: none;
-      color: inherit
-    }
+*{box-sizing:border-box;margin:0;padding:0}
 
-    .shell {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 2.5rem 1.75rem 4rem
-    }
+body{
+  background:radial-gradient(circle at top,#e5f3ff 0,#f5f7fb 40%,#eef2ff 100%);
+  color:var(--text);
+  font-family:var(--font-sans);
+  line-height:1.6;
+}
 
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(14px);
-      background: rgba(245, 247, 251, .9);
-      border-bottom: 1px solid rgba(226, 232, 240, .8)
-    }
+a{text-decoration:none;color:inherit}
 
-    .nav-inner {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: .9rem 1.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between
-    }
+.shell{
+  max-width:1040px;
+  margin:0 auto;
+  padding:2.5rem 1.75rem 4rem;
+}
 
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: .6rem
-    }
+/* NAVIGATION */
+nav{
+  position:sticky;
+  top:0;
+  z-index:20;
+  backdrop-filter:blur(14px);
+  background:rgba(245,247,251,.9);
+  border-bottom:1px solid rgba(226,232,240,.8);
+}
 
-    .nav-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 0, rgba(16, 185, 129, .35), #0f172a);
-      box-shadow: 0 0 0 1px rgba(148, 163, 184, .6), 0 18px 40px rgba(15, 23, 42, .45);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #e5f9f4;
-      font-size: .8rem;
-      font-weight: 600;
-      font-family: var(--font-serif)
-    }
+.nav-inner{
+  max-width:1040px;
+  margin:0 auto;
+  padding:.9rem 1.75rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
 
-    .nav-text-main {
-      font-family: var(--font-serif);
-      font-size: 1rem
-    }
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+}
 
-    .nav-text-sub {
-      font-size: .78rem;
-      color: var(--text-soft)
-    }
+.nav-mark{
+  width:32px;
+  height:32px;
+  border-radius:999px;
+  background:radial-gradient(circle at 30% 0,rgba(16,185,129,.35),#0f172a);
+  box-shadow:0 0 0 1px rgba(148,163,184,.6),0 18px 40px rgba(15,23,42,.45);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#e5f9f4;
+  font-size:.8rem;
+  font-weight:600;
+  font-family:var(--font-serif);
+}
 
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      font-size: .85rem;
-      color: var(--text-soft)
-    }
+.nav-text-main{
+  font-family:var(--font-serif);
+  font-size:1rem;
+}
 
-    .nav-links a {
-      position: relative;
-      padding-bottom: 2px
-    }
+.nav-text-sub{
+  font-size:.78rem;
+  color:var(--text-soft);
+}
 
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      border-radius: 999px;
-      transition: width .18s ease-out
-    }
+.nav-links{
+  display:flex;
+  gap:1.5rem;
+  font-size:.85rem;
+  color:var(--text-soft);
+}
 
-    .nav-links a:hover {
-      color: var(--text)
-    }
+.nav-links a{
+  position:relative;
+  padding-bottom:2px;
+}
 
-    .nav-links a:hover::after {
-      width: 100%
-    }
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:0;
+  height:2px;
+  background:var(--accent);
+  border-radius:999px;
+  transition:width .18s ease-out;
+}
 
-    .device {
-      width: 180px;
-      aspect-ratio: 9/19;
-      border-radius: 22px;
-      overflow: hidden;
-      position: relative;
-      background: #000;
-      box-shadow: var(--shadow-device)
-    }
+.nav-links a:hover{
+  color:var(--text);
+}
 
-    .device-screen,
-    .project-device-screen {
-      position: absolute;
-      inset: 3px;
-      border-radius: 16px;
-      overflow: hidden;
-      background: #000
-    }
+.nav-links a:hover::after{
+  width:100%;
+}
 
-    .device-screen img,
-    .project-device-screen img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      background: #000
-    }
+/* DEVICE FRAMES */
+.device{
+  width:180px;
+  aspect-ratio:9/19;
+  border-radius:22px;
+  overflow:hidden;
+  position:relative;
+  background:#000;
+  box-shadow:var(--shadow-device);
+}
 
-    .device-iphone {
-      transform: translateX(-30px) translateY(10px) rotate(-3deg)
-    }
+.device-screen{
+  position:absolute;
+  inset:3px;
+  border-radius:16px;
+  overflow:hidden;
+  background:#000;
+}
 
-    .device-android {
-      transform: translateX(30px) translateY(-10px) rotate(3deg)
-    }
+.device-screen img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:#000;
+}
 
-    .project-device {
-      width: 150px;
-      aspect-ratio: 9/19;
-      border-radius: 22px;
-      overflow: hidden;
-      position: relative;
-      background: #000;
-      box-shadow: var(--shadow-device)
-    }
+.device-iphone{
+  transform:translateX(-30px) translateY(10px) rotate(-3deg);
+}
 
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
-      gap: 2.5rem;
-      padding-top: 3.2rem;
-      align-items: center
-    }
+.device-android{
+  transform:translateX(30px) translateY(-10px) rotate(3deg);
+}
 
-    .hero-kicker {
-      font-size: .8rem;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: .9rem
-    }
+/* HERO */
+.hero{
+  display:grid;
+  grid-template-columns:minmax(0,1.6fr) minmax(0,1.4fr);
+  gap:2.5rem;
+  padding-top:3.2rem;
+  align-items:center;
+}
 
-    .hero-title {
-      font-family: var(--font-serif);
-      font-size: clamp(2.6rem, 4vw, 3.2rem);
-      line-height: 1.1;
-      margin-bottom: .5rem
-    }
+.hero-kicker{
+  font-size:.8rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:.9rem;
+}
 
-    .hero-sub {
-      font-size: 1rem;
-      color: var(--text-soft);
-      margin-bottom: 1.4rem
-    }
+.hero-title{
+  font-family:var(--font-serif);
+  font-size:clamp(2.6rem,4vw,3.2rem);
+  line-height:1.1;
+  margin-bottom:.5rem;
+}
 
-    .hero-body {
-      font-size: .98rem;
-      color: var(--text-soft);
-      max-width: 520px;
-      margin-bottom: 1.8rem
-    }
+.hero-sub{
+  font-size:1rem;
+  color:var(--text-soft);
+  margin-bottom:1.4rem;
+}
 
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .6rem;
-      margin-bottom: 1.8rem
-    }
+.hero-body{
+  font-size:.98rem;
+  color:var(--text-soft);
+  max-width:520px;
+  margin-bottom:1.8rem;
+}
 
-    .pill {
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, .6);
-      font-size: .78rem;
-      color: var(--text-soft);
-      background: rgba(255, 255, 255, .9)
-    }
+.hero-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem;
+  margin-bottom:1.8rem;
+}
 
-    .pill-strong {
-      border-color: rgba(16, 185, 129, .7);
-      color: var(--accent);
-      background: var(--accent-soft)
-    }
+.pill{
+  padding:6px 12px;
+  border-radius:999px;
+  border:1px solid rgba(148,163,184,.6);
+  font-size:.78rem;
+  color:var(--text-soft);
+  background:rgba(255,255,255,.9);
+}
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .8rem
-    }
+.pill-strong{
+  border-color:rgba(16,185,129,.7);
+  color:var(--accent);
+  background:var(--accent-soft);
+}
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: .7rem 1.4rem;
-      border-radius: var(--radius-sm);
-      font-size: .8rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: .18s ease-out
-    }
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.8rem;
+}
 
-    .btn-primary {
-      background: var(--accent);
-      color: #ecfdf5;
-      border-color: var(--accent);
-      box-shadow: 0 18px 40px rgba(16, 185, 129, .35)
-    }
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:.7rem 1.4rem;
+  border-radius:var(--radius-sm);
+  font-size:.8rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:.18s ease-out;
+}
 
-    .btn-ghost {
-      background: rgba(255, 255, 255, .9);
-      border-color: rgba(148, 163, 184, .7);
-      color: var(--text-soft)
-    }
+.btn-primary{
+  background:var(--accent);
+  color:#ecfdf5;
+  border-color:var(--accent);
+  box-shadow:0 18px 40px rgba(16,185,129,.35);
+}
 
-    .hero-devices {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 260px
-    }
+.btn-ghost{
+  background:rgba(255,255,255,.9);
+  border-color:rgba(148,163,184,.7);
+  color:var(--text-soft);
+}
 
-    .hero-device-label {
-      position: absolute;
-      bottom: -32px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: .6rem;
-      font-size: .78rem;
-      color: var(--text-soft);
-      background: rgba(255, 255, 255, .9);
-      border-radius: 999px;
-      padding: 6px 12px;
-      border: 1px solid rgba(148, 163, 184, .6);
-      backdrop-filter: blur(8px)
-    }
+.hero-devices{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:260px;
+}
 
-    section {
-      margin-top: 4rem
-    }
-
-    .section-header {
-      margin-bottom: 1.8rem
-    }
-
-    .section-kicker {
-      font-size: .78rem;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: .4rem
-    }
-
-    .section-title {
-      font-family: var(--font-serif);
-      font-size: 1.8rem;
-      margin-bottom: .4rem
-    }
-
-    .section-sub {
-      font-size: .9rem;
-      color: var(--text-soft);
-      max-width: 420px
-    }
-
-    .grid {
-      display: grid;
-      gap: 1.6rem
-    }
-
-    .grid-2 {
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))
-    }
-
-    .card {
-      background: var(--surface);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      padding: 1.4rem;
-      box-shadow: 0 18px 40px rgba(148, 163, 184, .18)
-    }
-
-    .card h3 {
-      font-family: var(--font-serif);
-      font-size: 1.1rem;
-      margin-bottom: .3rem
-    }
-
-    .card p {
-      font-size: .9rem;
-      color: var(--text-soft)
-    }
-
-    .tags {
-      margin-top: .8rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: .4rem
-    }
-
-    .tag {
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: .78rem
-    }
-
-    .project-card {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
-      gap: 1.2rem;
-      align-items: center;
-      background: var(--surface);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      padding: 1.4rem;
-      box-shadow: 0 20px 50px rgba(148, 163, 184, .22)
-    }
-
-    .project-devices {
-      position: relative;
-      min-height: 200px;
-      display: flex;
-      justify-content: center;
-      align-items: center
-    }
-
-    .project-body h3 {
-      font-family: var(--font-serif);
-      font-size: 1.1rem;
-      margin-bottom: .3rem
-    }
-
-    .project-body p {
-      font-size: .9rem;
-      color: var(--text-soft)
-    }
-
-    .contact-card {
-      background: var(--surface);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      padding: 1.6rem;
-      box-shadow: 0 20px 50px rgba(148, 163, 184, .22)
-    }
-
-    footer {
-      margin-top: 3.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-      font-size: .8rem;
-      color: var(--text-soft);
-      text-align: center
-    }
-  </style>
+.hero-device-label{
+  position:absolute;
+  bottom:-32px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:.6rem;
+  font-size:.78rem;
+  color:var(--text-soft);
+  background:rgba(255,255,255,.9);
+  border-radius:999px;
+  padding:6px 12px;
+  border:1px solid rgba(148,163,184,.6);
+  backdrop-filter:blur(8px);
+}
+</style>
 </head>
 
 <body>
-  <nav>
-    <div class="nav-inner"><a href="#top" class="nav-logo">
-        <div class="nav-mark">NP</div>
-        <div>
-          <div class="nav-text-main">Nivedhitha</div>
-          <div class="nav-text-sub">Senior Mobile Engineer</div>
-        </div>
-      </a>
-      <div class="nav-links"><a href="#work">Work</a><a href="#what-i-do">Approach</a><a
-          href="#experience">Experience</a><a href="#contact">Contact</a></div>
-    </div>
-  </nav>
-  <main class="shell" id="top">
-    <section class="hero">
+
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">
+      <div class="nav-mark">NP</div>
       <div>
-        <div class="hero-kicker">Mobile engineering · Telematics & EV</div>
-        <h1 class="hero-title">I build and maintain production‑grade mobile apps for fleets, drivers, and vehicles.</h1>
-        <p class="hero-sub">React Native · iOS · Android · Maps · Analytics · Store releases</p>
-        <p class="hero-body">I’m Nivedhitha, a senior mobile engineer focused on cross‑platform apps in telematics, EV
-          fleets, and vehicle management. I care about how products feel in someone’s hand and how they behave in
-          production.</p>
-        <div class="hero-meta"><span class="pill pill-strong">Assetmatics · Fleetlive · myTVS DrivePlus · Montra
-            Electric Driver</span><span class="pill">React Native · iOS · Android</span><span class="pill">Production
-            apps & releases</span></div>
-        <div class="hero-actions"><a href="#work" class="btn btn-primary">View my work</a><a
-            href="mailto:nivedhithapsarati@gmail.com" class="btn btn-ghost">Contact me</a></div>
+        <div class="nav-text-main">Nivedhitha</div>
+        <div class="nav-text-sub">Senior Mobile Engineer</div>
       </div>
-      <aside class="hero-devices">
-        <div class="device device-iphone">
-          <div class="device-screen"><img src="assets/screenshots/fleetlive-tracking.png" /></div>
+    </a>
+
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#what-i-do">Approach</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main class="shell" id="top">
+
+<section class="hero">
+  <div>
+    <div class="hero-kicker">Mobile engineering · Telematics & EV</div>
+
+    <h1 class="hero-title">
+      I build and maintain production‑grade mobile apps for fleets, drivers, and vehicles.
+    </h1>
+
+    <p class="hero-sub">React Native · iOS · Android · Maps · Analytics · Store releases</p>
+
+    <p class="hero-body">
+      I’m Nivedhitha, a senior mobile engineer focused on cross‑platform apps in telematics, EV fleets, and vehicle management. I care about how products feel in someone’s hand and how they behave in production.
+    </p>
+
+    <div class="hero-meta">
+      <span class="pill pill-strong">Assetmatics · Fleetlive · myTVS DrivePlus · Montra Electric Driver</span>
+      <span class="pill">React Native · iOS · Android</span>
+      <span class="pill">Production apps & releases</span>
+    </div>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#work">View my work</a>
+      <a class="btn btn-ghost" href="mailto:nivedhithapsarati@gmail.com">Contact me</a>
+    </div>
+  </div>
+
+  <aside class="hero-devices">
+    <div class="device device-iphone">
+      <div class="device-screen">
+        <img src="assets/screenshots/fleetlive-tracking.png"/>
+      </div>
+    </div>
+
+    <div class="device device-android">
+      <div class="device-screen">
+        <img src="assets/screenshots/assetmatics-score.png"/>
+      </div>
+    </div>
+
+    <div class="hero-device-label">
+      <span>iOS & Android</span>
+      <span>Real product screenshots</span>
+    </div>
+  </aside>
+</section>
+<!-- WORK SECTION WRAPPER -->
+<section id="work">
+  <div class="section-header">
+    <div class="section-kicker">Selected work</div>
+    <h2 class="section-title">Products I’ve shipped and maintained</h2>
+    <p class="section-sub">
+      A snapshot of the apps I’ve worked on — from first versions to migrations and production releases.
+    </p>
+  </div>
+</section>
+
+<!-- DEVICE STYLING FOR PROJECT CARDS -->
+<style>
+.project-card{
+  display:grid;
+  grid-template-columns:minmax(0,1.4fr) minmax(0,1.2fr);
+  gap:1.2rem;
+  align-items:center;
+  background:var(--surface);
+  border-radius:var(--radius-lg);
+  border:1px solid var(--border);
+  padding:1.4rem;
+  box-shadow:0 20px 50px rgba(148,163,184,.22);
+}
+
+.project-devices{
+  position:relative;
+  min-height:240px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:22px; /* FIXES THE “BOUND TOGETHER” ISSUE */
+}
+
+.project-device{
+  width:150px;
+  aspect-ratio:9/19;
+  border-radius:22px;
+  overflow:hidden;
+  position:relative;
+  background:#000;
+  box-shadow:var(--shadow-device);
+}
+
+.project-device-screen{
+  position:absolute;
+  inset:3px;
+  border-radius:16px;
+  overflow:hidden;
+  background:#000;
+}
+
+.project-device-screen img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:#000;
+}
+</style>
+
+<!-- ASSETMATICS -->
+<section>
+  <div class="section-header" style="margin-bottom:1.4rem;">
+    <div class="section-kicker">Product · Assetmatics</div>
+    <h2 class="section-title">Assetmatics — telematics in your pocket</h2>
+    <p class="section-sub">
+      A cross‑platform app for live vehicle tracking, driving behaviour, and alert management.
+    </p>
+  </div>
+
+  <article class="project-card">
+    <div class="project-devices">
+      <div class="project-device">
+        <div class="project-device-screen">
+          <img src="assets/screenshots/assetmatics-location.png"/>
         </div>
-        <div class="device device-android">
-          <div class="device-screen"><img src="assets/screenshots/assetmatics-score.png" /></div>
-        </div>
-        <div class="hero-device-label"><span>iOS & Android</span><span>Real product screenshots</span></div>
-      </aside>
-    </section>
-    <section id="work">
-      <div class="section-header">
-        <div class="section-kicker">Selected work</div>
-        <h2 class="section-title">Products I’ve shipped and maintained</h2>
-        <p class="section-sub">A snapshot of the apps I’ve worked on — from first versions to migrations and production
-          releases.</p>
       </div>
 
-      <!-- ASSETMATICS -->
-      <section>
-        <div class="section-header" style="margin-bottom:1.4rem;">
-          <div class="section-kicker">Product · Assetmatics</div>
-          <h2 class="section-title">Assetmatics — telematics in your pocket</h2>
-          <p class="section-sub">A cross‑platform app for live vehicle tracking, driving behaviour, and alert
-            management.</p>
+      <div class="project-device">
+        <div class="project-device-screen">
+          <img src="assets/screenshots/assetmatics-trip-details.png"/>
         </div>
-        <article class="project-card">
-          <div class="project-devices">
-            <div class="project-device">
-              <div class="project-device-screen"><img src="assets/screenshots/assetmatics-location.png" /></div>
-            </div>
-            <div class="project-device">
-              <div class="project-device-screen"><img src="assets/screenshots/assetmatics-trip-details.png" /></div>
-            </div>
-          </div>
-          <div class="project-body">
-            <h3>Live vehicle location & trips</h3>
-            <p>Real‑time GPS tracking with route history, trip summaries, and clear status indicators for moving, idle,
-              and stopped states.</p>
-            <div class="tags"><span class="tag">React Native</span><span class="tag">Maps</span><span
-                class="tag">Real‑time APIs</span></div>
-          </div>
-        </article>
-      </section>
+      </div>
+    </div>
 
-      <!-- FLEETLIVE -->
-      <section>
-        <div class="section-header" style="margin-bottom:1.4rem;">
-          <div class="section-kicker">Product · Fleetlive</div>
-          <h2 class="section-title">Fleetlive — fleet operations simplified</h2>
-          <p class="section-sub">A mobile app for fleet owners to monitor vehicles, drivers, and alerts in real time.
-          </p>
-        </div>
-        <article class="project-card">
-          <div class="project-devices">
-            <div class="project-device">
-              <div class="project-device-screen"><img src="assets/screenshots/fleetlive-dashboard.png" /></div>
-            </div>
-            <div class="project-device">
-              <div class="project-device-screen"><img src="assets/screenshots/fleetlive-alerts.png" /></div>
-            </div>
-          </div>
-          <div class="project-body">
-            <h3>Dashboard & alerts</h3>
-            <p>Live vehicle statuses, driver behaviour, and instant notifications for critical events like overspeeding,
-              harsh braking, and geofence violations.</p>
-            <div class="tags"><span class="tag">React Native</span><span class="tag">Push Notifications</span><span
-                class="tag">Analytics</span></div>
-          </div>
-        </article>
-      </section>
+    <div class="project-body">
+      <h3>Live vehicle location & trips</h3>
+      <p>
+        Real‑time GPS tracking with route history, trip summaries, and clear status indicators for moving, idle, and stopped states.
+      </p>
 
-      <!-- MYTVS -->
-      <section>
-        <div class="section-header" style="margin-bottom:1.4rem;">
-          <div class="section-kicker">Product · myTVS DrivePlus</div>
-          <h2 class="section-title">myTVS DrivePlus — connected car experience</h2>
-          <p class="section-sub">A companion app for car owners to track trips, health, and service reminders.</p>
-        </div>
-        <article class="project-card">
-          <div class="project-devices">
-            <div class="project-device">
-              <div class="project-device-screen"><img src="assets/screenshots/mytvs-home.png" /></div>
-            </div>
-            <div class="project-device">
-              <div class="project-device-screen"><img src="assets/screenshots/mytvs-service.png" /></div>
-            </div>
-          </div>
-          <div class="project-body">
-            <h3>Car health & service</h3>
-            <p>Service reminders, trip logs, and vehicle diagnostics integrated into a clean mobile experience.</p>
-            <div class="tags"><span class="tag">React Native</span><span class="tag">Automotive</span><span
-                class="tag">API Integration</span></div>
-          </div>
-        </article>
-      </section>
+      <div class="tags">
+        <span class="tag">React Native</span>
+        <span class="tag">Maps</span>
+        <span class="tag">Real‑time APIs</span>
+      </div>
+    </div>
+  </article>
+</section>
 
-      <!-- MONTRA -->
-      <section>
-        <div class="section-header" style="margin-bottom:1.4rem;">
-          <div class="section-kicker">Product · Montra Electric</div>
-          <h2 class="section-title">Montra Electric — EV driver companion</h2>
-          <p class="section-sub">An app for EV drivers to monitor battery, trips, and charging.</p>
-        </div>
-        <article class="project-card">
-          <div class="project-devices">
-            <div class="project-device">
-              <div class="project-device-screen"><img src="assets/screenshots/montra-battery.png" /></div>
-            </div>
-            <div class="project-device">
-              <div class="project-device-screen"><img src="assets/screenshots/montra-trips.png" /></div>
-            </div>
-          </div>
-          <div class="project-body">
-            <h3>Battery & charging</h3>
-            <p>Live battery percentage, charging status, and trip summaries designed for EV drivers.</p>
-            <div class="tags"><span class="tag">React Native</span><span class="tag">EV</span><span
-                class="tag">Bluetooth</span></div>
-          </div>
-        </article>
-      </section>
+<!-- FLEETLIVE -->
+<section>
+  <div class="section-header" style="margin-bottom:1.4rem;">
+    <div class="section-kicker">Product · Fleetlive</div>
+    <h2 class="section-title">Fleetlive — fleet operations simplified</h2>
+    <p class="section-sub">
+      A mobile app for fleet owners to monitor vehicles, drivers, and alerts in real time.
+    </p>
+  </div>
 
-      <!-- APPROACH -->
-      <section id="what-i-do">
-        <div class="section-header">
-          <div class="section-kicker">Approach</div>
-          <h2 class="section-title">How I build mobile apps</h2>
-          <p class="section-sub">My engineering approach focuses on stability, clarity, and real‑world performance.</p>
+  <article class="project-card">
+    <div class="project-devices">
+      <div class="project-device">
+        <div class="project-device-screen">
+          <img src="assets/screenshots/fleetlive-dashboard.png"/>
         </div>
-        <div class="grid grid-2">
-          <div class="card">
-            <h3>Production‑first mindset</h3>
-            <p>I build features with real‑world usage in mind — battery, network, and performance.</p>
-          </div>
-          <div class="card">
-            <h3>Readable, maintainable code</h3>
-            <p>Clean architecture, predictable patterns, and clear separation of concerns.</p>
-          </div>
-          <div class="card">
-            <h3>Design‑aligned execution</h3>
-            <p>I care about how products feel — animations, spacing, and interaction polish.</p>
-          </div>
-          <div class="card">
-            <h3>Monitoring & releases</h3>
-            <p>Crash analytics, OTA updates, and stable App Store / Play Store releases.</p>
-          </div>
-        </div>
-      </section>
+      </div>
 
-      <!-- EXPERIENCE -->
-      <section id="experience">
-        <div class="section-header">
-          <div class="section-kicker">Experience</div>
-          <h2 class="section-title">Where I’ve worked</h2>
+      <div class="project-device">
+        <div class="project-device-screen">
+          <img src="assets/screenshots/fleetlive-vehicle-summary.png"/>
         </div>
-        <div class="grid grid-2">
-          <div class="card">
-            <h3>Sensiple</h3>
-            <p>Senior Mobile Engineer — React Native, iOS, Android, telematics, EV, fleet apps.</p>
-          </div>
-          <div class="card">
-            <h3>myTVS</h3>
-            <p>Mobile Engineer — connected car apps, service workflows, trip logs.</p>
-          </div>
-        </div>
-      </section>
+      </div>
+    </div>
 
-      <!-- CONTACT -->
-      <section id="contact">
-        <div class="section-header">
-          <div class="section-kicker">Contact</div>
-          <h2 class="section-title">Let’s talk</h2>
-          <p class="section-sub">I’m open to roles in mobile engineering, telematics, EV, and product teams.</p>
-        </div>
-        <div class="contact-card">
-          <p>Email: nivedhithapsarati@gmail.com</p>
-          <p>Location: Amsterdam, Netherlands</p>
-        </div>
-      </section>
+    <div class="project-body">
+      <h3>Dashboard & alerts</h3>
+      <p>
+        Live vehicle statuses, driver behaviour, and instant notifications for critical events like overspeeding, harsh braking, and geofence violations.
+      </p>
 
-      <footer>© 2026 Nivedhitha — Senior Mobile Engineer</footer>
-  </main>
+      <div class="tags">
+        <span class="tag">React Native</span>
+        <span class="tag">Push Notifications</span>
+        <span class="tag">Analytics</span>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- MYTVS -->
+<section>
+  <div class="section-header" style="margin-bottom:1.4rem;">
+    <div class="section-kicker">Product · myTVS DrivePlus</div>
+    <h2 class="section-title">myTVS DrivePlus — connected car experience</h2>
+    <p class="section-sub">
+      A companion app for car owners to track trips, health, and service reminders.
+    </p>
+  </div>
+
+  <article class="project-card">
+    <div class="project-devices">
+      <div class="project-device">
+        <div class="project-device-screen">
+          <img src="assets/screenshots/mytvs-vehicle-summary.png"/>
+        </div>
+      </div>
+
+      <div class="project-device">
+        <div class="project-device-screen">
+          <img src="assets/screenshots/mytvs-vehicle-report.png"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-body">
+      <h3>Car health & service</h3>
+      <p>
+        Service reminders, trip logs, and vehicle diagnostics integrated into a clean mobile experience.
+      </p>
+
+      <div class="tags">
+        <span class="tag">React Native</span>
+        <span class="tag">Automotive</span>
+        <span class="tag">API Integration</span>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- MONTRA -->
+<section>
+  <div class="section-header" style="margin-bottom:1.4rem;">
+    <div class="section-kicker">Product · Montra Electric</div>
+    <h2 class="section-title">Montra Electric — EV driver companion</h2>
+    <p class="section-sub">
+      An app for EV drivers to monitor battery, trips, and charging.
+    </p>
+  </div>
+
+  <article class="project-card">
+    <div class="project-devices">
+      <div class="project-device">
+        <div class="project-device-screen">
+          <img src="assets/screenshots/montra-profile.png"/>
+        </div>
+      </div>
+
+      <div class="project-device">
+        <div class="project-device-screen">
+          <img src="assets/screenshots/montra-vehicle-management.png"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-body">
+      <h3>Battery & charging</h3>
+      <p>
+        Live battery percentage, charging status, and trip summaries designed for EV drivers.
+      </p>
+
+      <div class="tags">
+        <span class="tag">React Native</span>
+        <span class="tag">EV</span>
+        <span class="tag">Bluetooth</span>
+      </div>
+    </div>
+  </article>
+</section>
+<!-- APPROACH -->
+<section id="what-i-do">
+  <div class="section-header">
+    <div class="section-kicker">Approach</div>
+    <h2 class="section-title">How I build mobile apps</h2>
+    <p class="section-sub">
+      My engineering approach focuses on stability, clarity, and real‑world performance.
+    </p>
+  </div>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <h3>Production‑first mindset</h3>
+      <p>I build features with real‑world usage in mind — battery, network, and performance.</p>
+    </div>
+
+    <div class="card">
+      <h3>Readable, maintainable code</h3>
+      <p>Clean architecture, predictable patterns, and clear separation of concerns.</p>
+    </div>
+
+    <div class="card">
+      <h3>Design‑aligned execution</h3>
+      <p>I care about how products feel — animations, spacing, and interaction polish.</p>
+    </div>
+
+    <div class="card">
+      <h3>Monitoring & releases</h3>
+      <p>Crash analytics, OTA updates, and stable App Store / Play Store releases.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <div class="section-kicker">Experience</div>
+    <h2 class="section-title">Where I’ve worked</h2>
+  </div>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <h3>Sensiple</h3>
+      <p>Senior Mobile Engineer — React Native, iOS, Android, telematics, EV, fleet apps.</p>
+    </div>
+
+    <div class="card">
+      <h3>myTVS</h3>
+      <p>Mobile Engineer — connected car apps, service workflows, trip logs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <div class="section-kicker">Contact</div>
+    <h2 class="section-title">Let’s talk</h2>
+    <p class="section-sub">
+      I’m open to roles in mobile engineering, telematics, EV, and product teams.
+    </p>
+  </div>
+
+  <div class="contact-card">
+    <p>Email: nivedhithapsarati@gmail.com</p>
+    <p>Location: Amsterdam, Netherlands</p>
+
+    <div style="margin-top:1.4rem;">
+      <a href="mailto:nivedhithapsarati@gmail.com" class="btn btn-primary">
+        Let’s keep in touch
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Nivedhitha — Senior Mobile Engineer
+</footer>
+
+</main>
 </body>
-
 </html>
