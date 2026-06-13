@@ -187,13 +187,66 @@
       margin-top: var(--space-4);
     }
 
+    /* Ambient glow container */
+    .hero-devices::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle,
+          rgba(16, 185, 129, 0.22) 0%,
+          rgba(16, 185, 129, 0.08) 40%,
+          rgba(16, 185, 129, 0) 70%);
+      filter: blur(60px);
+      z-index: 1;
+      animation: ambientGlow 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    /* Soft breathing glow */
+    @keyframes ambientGlow {
+      0% {
+        transform: scale(0.92);
+        opacity: 0.55;
+      }
+
+      50% {
+        transform: scale(1.05);
+        opacity: 0.75;
+      }
+
+      100% {
+        transform: scale(0.92);
+        opacity: 0.55;
+      }
+    }
+
+
     /* Base device container */
     .device {
       width: 180px;
       transform-style: preserve-3d;
-      animation: floatIdle 6s ease-in-out infinite;
+      animation: floatSoft 7s ease-in-out infinite;
       opacity: 0;
+      z-index: 2;
     }
+
+    /* Soft floating motion */
+    @keyframes floatSoft {
+      0% {
+        transform: translateY(18px) rotateX(6deg) rotateY(var(--tilt));
+      }
+
+      50% {
+        transform: translateY(6px) rotateX(5deg) rotateY(calc(var(--tilt) + 1deg));
+      }
+
+      100% {
+        transform: translateY(18px) rotateX(6deg) rotateY(var(--tilt));
+      }
+    }
+
 
     /* iOS device tilt */
     .device.ios {
@@ -262,14 +315,15 @@
     @keyframes fadeInDevice {
       from {
         opacity: 0;
-        transform: translateY(40px) scale(0.92);
+        transform: translateY(40px) scale(0.96);
       }
 
       to {
         opacity: 1;
-        transform: translateY(20px) scale(1);
+        transform: translateY(18px) scale(1);
       }
     }
+
 
     /* Hover lift */
     .device:hover .device-frame {
@@ -929,20 +983,21 @@
     devices.forEach(device => {
       device.addEventListener('mousemove', (e) => {
         const rect = device.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
+        const x = (e.clientX - rect.left - rect.width / 2) / 30;
+        const y = (e.clientY - rect.top - rect.height / 2) / 30;
 
         device.style.transform =
-          `rotateY(${x / 20}deg) rotateX(${(-y / 20) + 6}deg) translateY(10px)`;
+          `translateY(12px) rotateX(${6 - y}deg) rotateY(${device.classList.contains('ios') ? -14 + x : 14 + x}deg)`;
       });
 
       device.addEventListener('mouseleave', () => {
         const tilt = device.classList.contains('ios') ? -14 : 14;
         device.style.transform =
-          `rotateY(${tilt}deg) rotateX(6deg) translateY(20px)`;
+          `translateY(18px) rotateX(6deg) rotateY(${tilt}deg)`;
       });
     });
   </script>
+
 
 
 </body>
