@@ -88,23 +88,24 @@
 
     /* HERO — Linear spacing */
     .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: var(--space-6);
-      align-items: center;
-      margin-bottom: var(--space-6);
-    }
+  margin-bottom: var(--space-6);
+}
 
-    /* HERO NAME — premium minimal animation */
-    .hero-name {
-      font-family: Spectral, serif;
-      font-size: 3.4rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      opacity: 0;
-      transform: translateY(10px);
-      /* animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; */
-    }
+.hero-name {
+  font-family: Spectral, serif;
+  font-size: 3.4rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-4);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+
 
     .hero-content {
       display: flex;
@@ -669,48 +670,53 @@
 <body>
   <main>
     <section class="hero">
-      <h1 class="hero-name">Nivedhitha Parthasarathy</h1>
-      <div class="hero-grid">
-        <div class="hero-content">
-          <h1 class="hero-name">Nivedhitha Parthasarathy</h1>
 
+      <!-- Top-level name -->
+      <h1 class="hero-name">Nivedhitha Parthasarathy</h1>
+    
+      <!-- Two-column hero grid -->
+      <div class="hero-grid">
+    
+        <!-- Left column: content -->
+        <div class="hero-content">
           <div class="hero-pill">
             <span>📱 Senior Mobile Engineer</span>
             <span>React Native · iOS</span>
           </div>
-
+    
           <h2 class="hero-title">
             I build mobile experiences that feel fast, intentional, and quietly premium.
           </h2>
-
+    
           <p class="hero-sub">
             With 6+ years across telematics, operations, and enterprise mobility, I design and ship apps
-            that balance architecture, UI feel, and real‑world performance. My work blends engineering clarity
-            with product intuition.
+            that balance architecture, UI feel, and real‑world performance.
           </p>
-
+    
           <div class="hero-cta">
             <a href="#work" class="btn-primary">See my work</a>
             <a href="#contact" class="btn-ghost">Let’s talk →</a>
           </div>
         </div>
-
+    
+        <!-- Right column: dual floating devices -->
         <div class="hero-devices">
           <div class="device ios">
             <div class="device-frame">
-              <img src="assets/screenshots/assetmatics-score.png" alt="iOS app screen" />
+              <img src="assets/screenshots/ios-screen.png" alt="iOS screen" />
             </div>
           </div>
-
+    
           <div class="device android">
             <div class="device-frame">
-              <img src="assets/screenshots/fleetlive-tracking.png" alt="Android app screen" />
+              <img src="assets/screenshots/android-screen.png" alt="Android screen" />
             </div>
           </div>
         </div>
+    
       </div>
-
     </section>
+    
 
     <section id="work" class="work">
       <h2 class="work-heading">Selected Work</h2>
