@@ -417,11 +417,12 @@
     .project-device {
       width: 150px;
       aspect-ratio: 9 / 19;
-      border-radius: 22px; /* smaller radius = more realistic */
+      border-radius: 22px; 
       box-shadow: var(--shadow-device);
       overflow: hidden;
       position: relative;
-      background: #000; /* subtle frame */
+      background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
     .project-device-iphone {
@@ -438,8 +439,8 @@
 
     .project-device-screen {
       position: absolute;
-      inset: 4px; /* thinner bezel */
-      border-radius: 18px; /* match new frame */
+      inset: 4px; 
+      border-radius: 18px; 
       overflow: hidden;
     }
 
