@@ -43,10 +43,6 @@
       padding: 2.5rem 1.75rem 4rem;
     }
 
-    @media (max-width: 768px) {
-      .shell { padding: 2rem 1.25rem 3.5rem; }
-    }
-
     nav {
       position: sticky;
       top: 0;
@@ -63,7 +59,6 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1.5rem;
     }
 
     .nav-logo {
@@ -85,12 +80,6 @@
       font-size: 0.8rem;
       font-weight: 600;
       font-family: var(--font-serif);
-    }
-
-    .nav-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
     }
 
     .nav-text-main {
@@ -130,11 +119,6 @@
     .nav-links a:hover { color: var(--text); }
     .nav-links a:hover::after { width: 100%; }
 
-    @media (max-width: 720px) {
-      .nav-inner { padding: 0.8rem 1.25rem; }
-      .nav-links { display: none; }
-    }
-
     /* HERO DEVICE STYLING — THIN BEZELS + SUBTLE TILT */
     .device {
       width: 180px;
@@ -142,10 +126,8 @@
       border-radius: 22px;
       overflow: hidden;
       position: relative;
-      /* background: #000; */
+      background: #000;
       box-shadow: 0 26px 70px rgba(15,23,42,0.35);
-      background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
-      border: 1px solid rgba(255,255,255,0.06);
     }
 
     .device-screen {
@@ -153,6 +135,14 @@
       inset: 3px;
       border-radius: 16px;
       overflow: hidden;
+      background: #000;
+    }
+
+    .device-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
     }
 
     .device-iphone {
@@ -176,9 +166,17 @@
 
     .project-device-screen {
       position: absolute;
-      inset: 4px;
-      border-radius: 18px;
+      inset: 3px;
+      border-radius: 16px;
       overflow: hidden;
+      background: #000;
+    }
+
+    .project-device-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
     }
 
     /* HERO LAYOUT */
@@ -188,13 +186,6 @@
       gap: 2.5rem;
       padding-top: 3.2rem;
       align-items: center;
-    }
-
-    @media (max-width: 880px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-        padding-top: 2.5rem;
-      }
     }
 
     .hero-kicker {
@@ -274,21 +265,10 @@
       box-shadow: 0 18px 40px rgba(16,185,129,0.35);
     }
 
-    .btn-primary:hover {
-      filter: brightness(1.05);
-      transform: translateY(-1px);
-    }
-
     .btn-ghost {
       background: rgba(255,255,255,0.9);
       border-color: rgba(148,163,184,0.7);
       color: var(--text-soft);
-    }
-
-    .btn-ghost:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-1px);
     }
 
     .hero-devices {
@@ -354,7 +334,7 @@
       background: var(--surface);
       border-radius: var(--radius-lg);
       border: 1px solid var(--border);
-      padding: 1.4rem 1.4rem 1.3rem;
+      padding: 1.4rem;
       box-shadow: 0 18px 40px rgba(148,163,184,0.18);
     }
 
@@ -393,12 +373,8 @@
       background: var(--surface);
       border-radius: var(--radius-lg);
       border: 1px solid var(--border);
-      padding: 1.4rem 1.4rem 1.3rem;
+      padding: 1.4rem;
       box-shadow: 0 20px 50px rgba(148,163,184,0.22);
-    }
-
-    @media (max-width: 720px) {
-      .project-card { grid-template-columns: minmax(0, 1fr); }
     }
 
     .project-devices {
@@ -425,7 +401,7 @@
       background: var(--surface);
       border-radius: var(--radius-lg);
       border: 1px solid var(--border);
-      padding: 1.6rem 1.5rem 1.5rem;
+      padding: 1.6rem;
       box-shadow: 0 20px 50px rgba(148,163,184,0.22);
     }
 
@@ -445,14 +421,15 @@
     }
   </style>
 </head>
+
 <body>
   <nav>
     <div class="nav-inner">
       <a href="#top" class="nav-logo">
         <div class="nav-mark">NP</div>
-        <div class="nav-text">
-          <span class="nav-text-main">Nivedhitha</span>
-          <span class="nav-text-sub">Senior Mobile Engineer</span>
+        <div>
+          <div class="nav-text-main">Nivedhitha</div>
+          <div class="nav-text-sub">Senior Mobile Engineer</div>
         </div>
       </a>
       <div class="nav-links">
@@ -475,18 +452,20 @@
           I’m Nivedhitha, a senior mobile engineer focused on cross‑platform apps in telematics, EV fleets,
           and vehicle management. I care about how products feel in someone’s hand and how they behave in production.
         </p>
+
         <div class="hero-meta">
           <span class="pill pill-strong">Assetmatics · Fleetlive · myTVS DrivePlus · Montra Electric Driver</span>
           <span class="pill">React Native · iOS · Android</span>
           <span class="pill">Production apps & releases</span>
         </div>
+
         <div class="hero-actions">
           <a href="#work" class="btn btn-primary">View my work</a>
           <a href="mailto:nivedhithapsarati@gmail.com" class="btn btn-ghost">Contact me</a>
         </div>
       </div>
 
-      <!-- UPDATED HERO DEVICES -->
+      <!-- HERO DEVICES -->
       <aside class="hero-devices">
         <div class="device device-iphone">
           <div class="device-screen">
@@ -517,10 +496,37 @@
         </p>
       </div>
 
-      <!-- 1. ASSETMATICS -->
+      <!-- ASSETMATICS -->
       <section id="assetmatics">
         <div class="section-header" style="margin-bottom:1.4rem;">
           <div class="section-kicker">Product · Assetmatics</div>
           <h2 class="section-title">Assetmatics — telematics in your pocket</h2>
           <p class="section-sub">
-            A cross‑platform app for live vehicle tracking
+            A cross‑platform app for live vehicle tracking, driving behaviour, and alert management.
+          </p>
+        </div>
+
+        <article class="project-card">
+          <div class="project-devices">
+            <div class="project-device">
+              <div class="project-device-screen">
+                <img src="assets/screenshots/assetmatics-location.png" alt="Assetmatics location screen" />
+              </div>
+            </div>
+            <div class="project-device">
+              <div class="project-device-screen">
+                <img src="assets/screenshots/assetmatics-trip-details.png" alt="Assetmatics trip details" />
+              </div>
+            </div>
+          </div>
+
+          <div class="project-body">
+            <h3>Live vehicle location & trips</h3>
+            <p>
+              Real‑time GPS tracking with route history, trip summaries, and clear status indicators
+              for moving, idle, and stopped states.
+            </p>
+            <div class="tags">
+              <span class="tag">React Native</span>
+              <span class="tag">Maps</span>
+              <span class="tag">Real‑time APIs</span>
