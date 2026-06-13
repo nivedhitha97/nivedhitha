@@ -175,7 +175,59 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      perspective: 1600px;
     }
+
+    .hero-device-frame {
+      width: 100%;
+      max-width: 360px;
+      border-radius: 28px;
+      padding: 10px;
+      background: linear-gradient(145deg, #ffffff, #f1f5f9);
+      box-shadow:
+        0 20px 40px rgba(15, 23, 42, 0.12),
+        0 8px 20px rgba(15, 23, 42, 0.06);
+      transform-style: preserve-3d;
+      transform: translateY(20px) scale(0.96);
+      opacity: 0;
+      animation: heroDeviceEnter 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s;
+      transition:
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.6s ease;
+    }
+
+    .hero-device-screen {
+      border-radius: 22px;
+      overflow: hidden;
+      transform: translateZ(40px);
+    }
+
+    .hero-device-screen img {
+      width: 100%;
+      display: block;
+    }
+
+    /* Entrance animation */
+    @keyframes heroDeviceEnter {
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.92);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Hover glow + lift */
+    .hero-device-frame:hover {
+      transform: translateY(-6px) scale(1.02) rotateX(2deg) rotateY(-2deg);
+      box-shadow:
+        0 32px 80px rgba(15, 23, 42, 0.18),
+        0 12px 32px rgba(15, 23, 42, 0.12);
+    }
+
 
     .hero-device-inner {
       width: 100%;
@@ -506,10 +558,13 @@
       </div>
 
       <div class="hero-device">
-        <div class="hero-device-inner">
-          <img src="assets/screenshots/assetmatics-location.png" alt="App preview" />
+        <div class="hero-device-frame">
+          <div class="hero-device-screen">
+            <img src="assets/screenshots/assetmatics-location.png" alt="App preview" />
+          </div>
         </div>
       </div>
+
     </section>
 
     <section id="work" class="work">
@@ -681,65 +736,25 @@
   </main>
 
   <script>
-    const track = document.getElementById('workTrack');
-    const cards = Array.from(document.querySelectorAll('.work-card'));
+    const heroFrame = document.querySelector('.hero-device-frame');
 
-    function updateActiveCard() {
-      if (!track || !cards.length) return;
+    if (heroFrame) {
+      heroFrame.addEventListener('mousemove', (e) => {
+        const rect = heroFrame.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
 
-      const trackRect = track.getBoundingClientRect();
-      const centerX = trackRect.left + trackRect.width / 2;
-
-      let closest = null;
-      let minDist = Infinity;
-
-      cards.forEach(card => {
-        const rect = card.getBoundingClientRect();
-        const cardCenter = rect.left + rect.width / 2;
-        const dist = Math.abs(centerX - cardCenter);
-        if (dist < minDist) {
-          minDist = dist;
-          closest = card;
-        }
+        heroFrame.style.transform =
+          `rotateX(${(-y / 20)}deg) rotateY(${x / 20}deg) translateY(-4px) scale(1.02)`;
       });
 
-      if (!closest) return;
-
-      cards.forEach(c => c.classList.remove('active'));
-      closest.classList.add('active');
-    }
-
-    let ticking = false;
-
-    if (track) {
-      track.addEventListener('scroll', () => {
-        if (!ticking) {
-          requestAnimationFrame(() => {
-            updateActiveCard();
-            ticking = false;
-          });
-          ticking = true;
-        }
+      heroFrame.addEventListener('mouseleave', () => {
+        heroFrame.style.transform =
+          'rotateX(0deg) rotateY(0deg) translateY(0) scale(1)';
       });
     }
-
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
-        if (!track) return;
-        const rect = card.getBoundingClientRect();
-        const trackRect = track.getBoundingClientRect();
-        const offset = rect.left - trackRect.left - (trackRect.width - rect.width) / 2;
-
-        track.scrollBy({
-          left: offset,
-          behavior: 'smooth'
-        });
-      });
-    });
-
-    // Initial state
-    updateActiveCard();
   </script>
+
 </body>
 
 </html>
