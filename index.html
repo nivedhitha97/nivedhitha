@@ -178,6 +178,108 @@
       perspective: 1600px;
     }
 
+    .hero-devices {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      perspective: 1600px;
+      margin-top: var(--space-4);
+    }
+
+    /* Base device container */
+    .device {
+      width: 180px;
+      transform-style: preserve-3d;
+      animation: floatIdle 6s ease-in-out infinite;
+      opacity: 0;
+    }
+
+    /* iOS device tilt */
+    .device.ios {
+      transform: rotateY(-14deg) rotateX(6deg) translateY(20px);
+      animation-delay: 0.2s;
+    }
+
+    /* Android device tilt */
+    .device.android {
+      transform: rotateY(14deg) rotateX(6deg) translateY(20px);
+      animation-delay: 0.4s;
+    }
+
+    /* Device frame */
+    .device-frame {
+      background: linear-gradient(145deg, #ffffff, #f1f5f9);
+      padding: 10px;
+      border-radius: 26px;
+      box-shadow:
+        0 20px 40px rgba(15, 23, 42, 0.12),
+        0 8px 20px rgba(15, 23, 42, 0.06);
+      overflow: hidden;
+      transform: translateZ(40px);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.6s ease;
+    }
+
+    /* Screen */
+    .device-frame img {
+      width: 100%;
+      border-radius: 20px;
+      display: block;
+    }
+
+    /* Entrance animation */
+    @keyframes floatIdle {
+      0% {
+        transform: translateY(20px) rotateY(var(--tilt)) rotateX(6deg);
+      }
+
+      50% {
+        transform: translateY(10px) rotateY(calc(var(--tilt) + 2deg)) rotateX(4deg);
+      }
+
+      100% {
+        transform: translateY(20px) rotateY(var(--tilt)) rotateX(6deg);
+      }
+    }
+
+    .device.ios {
+      --tilt: -14deg;
+    }
+
+    .device.android {
+      --tilt: 14deg;
+    }
+
+    /* Fade-in */
+    .device {
+      animation-name: floatIdle, fadeInDevice;
+      animation-duration: 6s, 1s;
+      animation-timing-function: ease-in-out, cubic-bezier(0.16, 1, 0.3, 1);
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes fadeInDevice {
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.92);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(20px) scale(1);
+      }
+    }
+
+    /* Hover lift */
+    .device:hover .device-frame {
+      transform: translateZ(60px) scale(1.04);
+      box-shadow:
+        0 32px 80px rgba(15, 23, 42, 0.18),
+        0 12px 32px rgba(15, 23, 42, 0.12);
+    }
+
+
     .hero-device-frame {
       width: 100%;
       max-width: 360px;
@@ -557,10 +659,16 @@
         </div>
       </div>
 
-      <div class="hero-device">
-        <div class="hero-device-frame">
-          <div class="hero-device-screen">
-            <img src="assets/screenshots/assetmatics-location.png" alt="App preview" />
+      <div class="hero-devices">
+        <div class="device ios">
+          <div class="device-frame">
+            <img src="assets/screenshots/ios-screen.png" alt="iOS app screen" />
+          </div>
+        </div>
+
+        <div class="device android">
+          <div class="device-frame">
+            <img src="assets/screenshots/android-screen.png" alt="Android app screen" />
           </div>
         </div>
       </div>
@@ -734,6 +842,66 @@
     </section>
 
   </main>
+  <script>
+    const track = document.getElementById('workTrack');
+    const cards = Array.from(document.querySelectorAll('.work-card'));
+
+    function updateActiveCard() {
+      if (!track || !cards.length) return;
+
+      const trackRect = track.getBoundingClientRect();
+      const centerX = trackRect.left + trackRect.width / 2;
+
+      let closest = null;
+      let minDist = Infinity;
+
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.left + rect.width / 2;
+        const dist = Math.abs(centerX - cardCenter);
+        if (dist < minDist) {
+          minDist = dist;
+          closest = card;
+        }
+      });
+
+      if (!closest) return;
+
+      cards.forEach(c => c.classList.remove('active'));
+      closest.classList.add('active');
+    }
+
+    let ticking = false;
+
+    if (track) {
+      track.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            updateActiveCard();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    }
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        if (!track) return;
+        const rect = card.getBoundingClientRect();
+        const trackRect = track.getBoundingClientRect();
+        const offset = rect.left - trackRect.left - (trackRect.width - rect.width) / 2;
+
+        track.scrollBy({
+          left: offset,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Initial state
+    updateActiveCard();
+  </script>
 
   <script>
     const heroFrame = document.querySelector('.hero-device-frame');
@@ -754,6 +922,28 @@
       });
     }
   </script>
+
+  <script>
+    const devices = document.querySelectorAll('.device');
+
+    devices.forEach(device => {
+      device.addEventListener('mousemove', (e) => {
+        const rect = device.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+
+        device.style.transform =
+          `rotateY(${x / 20}deg) rotateX(${(-y / 20) + 6}deg) translateY(10px)`;
+      });
+
+      device.addEventListener('mouseleave', () => {
+        const tilt = device.classList.contains('ios') ? -14 : 14;
+        device.style.transform =
+          `rotateY(${tilt}deg) rotateX(6deg) translateY(20px)`;
+      });
+    });
+  </script>
+
 
 </body>
 
