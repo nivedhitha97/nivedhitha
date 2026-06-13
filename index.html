@@ -103,7 +103,7 @@
       letter-spacing: -0.02em;
       opacity: 0;
       transform: translateY(10px);
-      animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      /* animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; */
     }
 
     .hero-content {
@@ -205,7 +205,7 @@
     }
 
     /* Soft breathing glow */
-    @keyframes ambientGlow {
+    /* @keyframes ambientGlow {
       0% {
         transform: scale(0.92);
         opacity: 0.55;
@@ -220,17 +220,20 @@
         transform: scale(0.92);
         opacity: 0.55;
       }
-    }
+    } */
 
-
-    /* Base device container */
     .device {
       width: 180px;
       transform-style: preserve-3d;
-      animation: floatSoft 7s ease-in-out infinite;
       opacity: 0;
       z-index: 2;
+
+      /* One clean animation stack */
+      animation:
+        fadeInDevice 1s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+        floatSoft 7s ease-in-out infinite 1s;
     }
+
 
     /* Soft floating motion */
     @keyframes floatSoft {
@@ -281,35 +284,12 @@
       display: block;
     }
 
-    /* Entrance animation */
-    @keyframes floatIdle {
-      0% {
-        transform: translateY(20px) rotateY(var(--tilt)) rotateX(6deg);
-      }
-
-      50% {
-        transform: translateY(10px) rotateY(calc(var(--tilt) + 2deg)) rotateX(4deg);
-      }
-
-      100% {
-        transform: translateY(20px) rotateY(var(--tilt)) rotateX(6deg);
-      }
-    }
-
     .device.ios {
       --tilt: -14deg;
     }
 
     .device.android {
       --tilt: 14deg;
-    }
-
-    /* Fade-in */
-    .device {
-      animation-name: floatIdle, fadeInDevice;
-      animation-duration: 6s, 1s;
-      animation-timing-function: ease-in-out, cubic-bezier(0.16, 1, 0.3, 1);
-      animation-fill-mode: forwards;
     }
 
     @keyframes fadeInDevice {
@@ -346,7 +326,7 @@
       transform-style: preserve-3d;
       transform: translateY(20px) scale(0.96);
       opacity: 0;
-      animation: heroDeviceEnter 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s;
+      /* animation: heroDeviceEnter 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s; */
       transition:
         transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
         box-shadow 0.6s ease;
@@ -364,7 +344,7 @@
     }
 
     /* Entrance animation */
-    @keyframes heroDeviceEnter {
+    /* @keyframes heroDeviceEnter {
       from {
         opacity: 0;
         transform: translateY(40px) scale(0.92);
@@ -374,7 +354,7 @@
         opacity: 1;
         transform: translateY(0) scale(1);
       }
-    }
+    } */
 
     /* Hover glow + lift */
     .hero-device-frame:hover {
@@ -384,7 +364,7 @@
         0 12px 32px rgba(15, 23, 42, 0.12);
     }
 
-
+    /* 
     .hero-device-inner {
       width: 100%;
       max-width: 360px;
@@ -393,8 +373,8 @@
       box-shadow: var(--shadow-card);
       transform: translateY(12px);
       opacity: 0;
-      animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s;
-    }
+      animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s; 
+    } */
 
     .hero-device-inner img {
       width: 100%;
@@ -502,12 +482,12 @@
     }
 
 
-    @keyframes fadeUp {
+    /* @keyframes fadeUp {
       to {
         opacity: 1;
         transform: translateY(0);
       }
-    }
+    } */
 
     /* WORK SECTION — Linear card style */
     .work-track-wrapper {
