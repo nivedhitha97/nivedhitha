@@ -1,736 +1,940 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nivedhitha Parthasarathy — Senior Mobile Engineer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nivedhitha — Senior Mobile Engineer</title>
 
-  :root {
-    --bg: #0d0d0d;
-    --surface: #141414;
-    --surface2: #1a1a1a;
-    --border: rgba(255,255,255,0.08);
-    --border-strong: rgba(255,255,255,0.15);
-    --text: #f0ede8;
-    --text-muted: #888;
-    --text-dim: #555;
-    --accent: #6EE7B7;
-    --accent2: #818CF8;
-    --accent3: #FCA5A5;
-    --accent-dim: rgba(110,231,183,0.12);
-    --accent2-dim: rgba(129,140,248,0.12);
-    --serif: 'DM Serif Display', serif;
-    --sans: 'Inter', sans-serif;
-    --mono: 'JetBrains Mono', monospace;
-    --radius: 12px;
-    --radius-sm: 6px;
-  }
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-  html { scroll-behavior: smooth; }
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --surface-soft: #f1f5f9;
+      --text: #0f172a;
+      --text-soft: #64748b;
+      --accent: #10b981;
+      --accent-soft: rgba(16,185,129,0.12);
+      --border: #e2e8f0;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 10px;
+      --shadow-soft: 0 24px 60px rgba(15,23,42,0.18);
+      --shadow-device: 0 26px 70px rgba(15,23,42,0.35);
+      --font-serif: 'Spectral', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--sans);
-    font-size: 15px;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 2.5rem;
-    background: rgba(13,13,13,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid var(--border);
-  }
-  .nav-logo {
-    font-family: var(--mono);
-    font-size: 13px;
-    color: var(--accent);
-    letter-spacing: 0.05em;
-    text-decoration: none;
-  }
-  .nav-links { display: flex; gap: 2rem; }
-  .nav-links a {
-    font-size: 13px;
-    color: var(--text-muted);
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--text); }
+    body {
+      background: radial-gradient(circle at top, #e5f3ff 0, #f5f7fb 40%, #eef2ff 100%);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+    }
 
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 6rem 2.5rem 4rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .hero-inner { width: 100%; }
-  .hero-eyebrow {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--accent);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .hero-eyebrow::before {
-    content: '';
-    display: inline-block;
-    width: 32px;
-    height: 1px;
-    background: var(--accent);
-  }
-  .hero-name {
-    font-family: var(--serif);
-    font-size: clamp(3rem, 7vw, 5.5rem);
-    line-height: 1.05;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-  }
-  .hero-name em {
-    font-style: italic;
-    color: var(--accent);
-  }
-  .hero-title {
-    font-size: 1rem;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-    font-weight: 300;
-    letter-spacing: 0.03em;
-  }
-  .hero-desc {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    max-width: 540px;
-    line-height: 1.8;
-    margin-bottom: 2.5rem;
-  }
-  .hero-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-bottom: 2.5rem;
-  }
-  .meta-pill {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-muted);
-    border: 0.5px solid var(--border-strong);
-    border-radius: 100px;
-    padding: 4px 14px;
-    letter-spacing: 0.05em;
-  }
-  .meta-pill.green {
-    color: var(--accent);
-    border-color: rgba(110,231,183,0.3);
-    background: var(--accent-dim);
-  }
-  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn {
-    display: inline-block;
-    font-size: 13px;
-    font-family: var(--mono);
-    letter-spacing: 0.05em;
-    padding: 10px 24px;
-    border-radius: var(--radius-sm);
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
-    transition: all 0.2s;
-  }
-  .btn-primary {
-    background: var(--accent);
-    color: #0d0d0d;
-    font-weight: 600;
-  }
-  .btn-primary:hover { background: #86efb8; }
-  .btn-ghost {
-    background: transparent;
-    color: var(--text-muted);
-    border: 0.5px solid var(--border-strong);
-  }
-  .btn-ghost:hover { color: var(--text); border-color: var(--text-muted); }
+    a { text-decoration: none; color: inherit; }
 
-  .hero-stats {
-    display: flex;
-    gap: 3rem;
-    margin-top: 4rem;
-    padding-top: 2.5rem;
-    border-top: 0.5px solid var(--border);
-  }
-  .stat-num {
-    font-family: var(--serif);
-    font-size: 2.4rem;
-    color: var(--text);
-    line-height: 1;
-  }
-  .stat-num span { color: var(--accent); }
-  .stat-label {
-    font-size: 11px;
-    color: var(--text-dim);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
+    .shell {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 2.5rem 1.75rem 4rem;
+    }
 
-  /* SECTIONS */
-  section {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 5rem 2.5rem;
-  }
-  .section-label {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 0.75rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 0.5px;
-    background: var(--border);
-  }
-  .section-title {
-    font-family: var(--serif);
-    font-size: 2.2rem;
-    margin-bottom: 3rem;
-    color: var(--text);
-  }
+    @media (max-width: 768px) {
+      .shell { padding: 2rem 1.25rem 3.5rem; }
+    }
 
-  /* SKILLS */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1px;
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-  }
-  .skill-cell {
-    background: var(--surface);
-    padding: 1.5rem;
-    transition: background 0.2s;
-  }
-  .skill-cell:hover { background: var(--surface2); }
-  .skill-cell-icon {
-    font-size: 24px;
-    margin-bottom: 0.75rem;
-    opacity: 0.7;
-  }
-  .skill-cell-title {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-  }
-  .skill-cell-items {
-    font-size: 12px;
-    color: var(--text-dim);
-    line-height: 1.6;
-    font-family: var(--mono);
-  }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(245,247,251,0.9);
+      border-bottom: 1px solid rgba(226,232,240,0.8);
+    }
 
-  /* EXPERIENCE */
-  .timeline { position: relative; }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 8px;
-    bottom: 0;
-    width: 0.5px;
-    background: var(--border);
-  }
-  .timeline-item {
-    padding-left: 2rem;
-    margin-bottom: 3.5rem;
-    position: relative;
-  }
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -3px;
-    top: 8px;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 0 3px rgba(110,231,183,0.15);
-  }
-  .timeline-meta {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-dim);
-    letter-spacing: 0.05em;
-    margin-bottom: 0.4rem;
-  }
-  .timeline-role {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 0.2rem;
-  }
-  .timeline-company {
-    font-size: 0.875rem;
-    color: var(--accent);
-    margin-bottom: 1rem;
-  }
-  .timeline-points {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .timeline-points li {
-    font-size: 14px;
-    color: var(--text-muted);
-    padding-left: 1.25rem;
-    position: relative;
-  }
-  .timeline-points li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--text-dim);
-    font-size: 12px;
-  }
-  .highlight-metric {
-    color: var(--text);
-    font-weight: 500;
-  }
+    .nav-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0.9rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
 
-  /* IMPACT NUMBERS */
-  .metrics-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    margin-bottom: 4rem;
-  }
-  .metric-box {
-    background: var(--surface);
-    padding: 2rem 1.5rem;
-    text-align: center;
-  }
-  .metric-big {
-    font-family: var(--serif);
-    font-size: 2.8rem;
-    color: var(--text);
-    line-height: 1;
-  }
-  .metric-big em { font-style: italic; color: var(--accent); }
-  .metric-desc {
-    font-size: 12px;
-    color: var(--text-dim);
-    margin-top: 0.5rem;
-    letter-spacing: 0.05em;
-  }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
 
-  /* SKILLS TAGS */
-  .tag-cloud {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-  }
-  .tag {
-    font-family: var(--mono);
-    font-size: 11.5px;
-    padding: 5px 14px;
-    border-radius: 100px;
-    border: 0.5px solid var(--border);
-    color: var(--text-muted);
-    transition: all 0.15s;
-    cursor: default;
-  }
-  .tag:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: var(--accent-dim);
-  }
-  .tag.core {
-    border-color: rgba(129,140,248,0.4);
-    color: var(--accent2);
-    background: var(--accent2-dim);
-  }
+    .nav-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, rgba(16,185,129,0.35), #0f172a);
+      box-shadow: 0 0 0 1px rgba(148,163,184,0.6), 0 18px 40px rgba(15,23,42,0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e5f9f4;
+      font-size: 0.8rem;
+      font-weight: 600;
+      font-family: var(--font-serif);
+    }
 
-  /* ABOUT / PROFILE */
-  .profile-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-  }
-  .profile-left p {
-    color: var(--text-muted);
-    margin-bottom: 1.25rem;
-    line-height: 1.8;
-  }
-  .profile-detail-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
-  .profile-detail-list li {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-  .detail-key {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-dim);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    width: 100px;
-    flex-shrink: 0;
-    padding-top: 2px;
-  }
-  .detail-val {
-    font-size: 14px;
-    color: var(--text-muted);
-  }
-  .detail-val a { color: var(--accent); text-decoration: none; }
+    .nav-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
 
-  /* FOOTER */
-  footer {
-    border-top: 0.5px solid var(--border);
-    text-align: center;
-    padding: 2.5rem;
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--text-dim);
-  }
+    .nav-text-main {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+    }
 
-  /* DIVIDER LINE */
-  .section-divider {
-    border: none;
-    border-top: 0.5px solid var(--border);
-    max-width: 900px;
-    margin: 0 auto;
-  }
+    .nav-text-sub {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
 
-  /* OPEN TO WORK BADGE */
-  .open-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--accent);
-    background: var(--accent-dim);
-    border: 0.5px solid rgba(110,231,183,0.3);
-    border-radius: 100px;
-    padding: 5px 14px;
-    margin-bottom: 1.5rem;
-  }
-  .open-badge::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
 
-  @media (max-width: 640px) {
-    nav { padding: 1rem 1.25rem; }
-    .nav-links { gap: 1.25rem; }
-    section { padding: 3.5rem 1.25rem; }
-    .hero { padding: 5rem 1.25rem 3rem; }
-    .hero-stats { gap: 1.75rem; }
-    .metrics-row { grid-template-columns: 1fr; }
-    .profile-grid { grid-template-columns: 1fr; }
-    .hero-name { font-size: 2.8rem; }
-  }
-</style>
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 999px;
+      transition: width 0.18s ease-out;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+
+    @media (max-width: 720px) {
+      .nav-inner { padding: 0.8rem 1.25rem; }
+      .nav-links { display: none; }
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
+      gap: 2.5rem;
+      padding-top: 3.2rem;
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 2.5rem;
+      }
+    }
+
+    .hero-kicker {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.6rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--text-soft);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-body {
+      font-size: 0.98rem;
+      color: var(--text-soft);
+      max-width: 520px;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .pill {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      background: rgba(255,255,255,0.9);
+    }
+
+    .pill-strong {
+      border-color: rgba(16,185,129,0.7);
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.4rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: 0.18s ease-out;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ecfdf5;
+      border-color: var(--accent);
+      box-shadow: 0 18px 40px rgba(16,185,129,0.35);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.9);
+      border-color: rgba(148,163,184,0.7);
+      color: var(--text-soft);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .hero-devices {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 260px;
+    }
+
+    .device {
+      position: relative;
+      width: 180px;
+      aspect-ratio: 9 / 19;
+      border-radius: 32px;
+      box-shadow: var(--shadow-device);
+      overflow: hidden;
+      transform-origin: center;
+      animation: float 7s ease-in-out infinite;
+    }
+
+    .device-iphone {
+      background: radial-gradient(circle at 0 0, #1f2937, #020617);
+      border: 1px solid rgba(15,23,42,0.8);
+      transform: translateX(-40px) translateY(10px) rotate(-4deg);
+      animation-delay: 0s;
+    }
+
+    .device-android {
+      background: radial-gradient(circle at 0 0, #f9fafb, #e5e7eb);
+      border: 1px solid rgba(148,163,184,0.9);
+      transform: translateX(40px) translateY(-10px) rotate(4deg);
+      animation-delay: 1.5s;
+    }
+
+    .device-screen {
+      position: absolute;
+      inset: 10px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #020617;
+    }
+
+    .device-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .device-glow {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at 50% 0, rgba(16,185,129,0.35), transparent 60%);
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .hero-device-label {
+      position: absolute;
+      bottom: -32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.6rem;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      background: rgba(255,255,255,0.9);
+      border-radius: 999px;
+      padding: 6px 12px;
+      border: 1px solid rgba(148,163,184,0.6);
+      backdrop-filter: blur(8px);
+    }
+
+    @keyframes float {
+      0%   { transform: translateY(0) translateX(var(--x,0)) rotate(var(--r,0)); }
+      50%  { transform: translateY(-10px) translateX(calc(var(--x,0))) rotate(calc(var(--r,0))); }
+      100% { transform: translateY(0) translateX(var(--x,0)) rotate(var(--r,0)); }
+    }
+
+    section { margin-top: 4rem; }
+
+    .section-header { margin-bottom: 1.8rem; }
+
+    .section-kicker {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      max-width: 420px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.6rem;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 1.4rem 1.4rem 1.3rem;
+      box-shadow: 0 18px 40px rgba(148,163,184,0.18);
+    }
+
+    .card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .tags {
+      margin-top: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.78rem;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+      gap: 1.2rem;
+      align-items: center;
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 1.4rem 1.4rem 1.3rem;
+      box-shadow: 0 20px 50px rgba(148,163,184,0.22);
+    }
+
+    @media (max-width: 720px) {
+      .project-card { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .project-devices {
+      position: relative;
+      min-height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .project-device {
+      width: 150px;
+      aspect-ratio: 9 / 19;
+      border-radius: 30px;
+      box-shadow: var(--shadow-device);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-device-iphone {
+      background: radial-gradient(circle at 0 0, #1f2937, #020617);
+      border: 1px solid rgba(15,23,42,0.8);
+      transform: translateX(-26px) translateY(8px) rotate(-3deg);
+    }
+
+    .project-device-android {
+      background: radial-gradient(circle at 0 0, #f9fafb, #e5e7eb);
+      border: 1px solid rgba(148,163,184,0.9);
+      transform: translateX(26px) translateY(-8px) rotate(3deg);
+    }
+
+    .project-device-screen {
+      position: absolute;
+      inset: 9px;
+      border-radius: 22px;
+      overflow: hidden;
+      background: #020617;
+    }
+
+    .project-device-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-body h3 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-body p {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .contact-card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 1.6rem 1.5rem 1.5rem;
+      box-shadow: 0 20px 50px rgba(148,163,184,0.22);
+    }
+
+    .contact-card p {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin-bottom: 0.6rem;
+    }
+
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-
-<nav>
-  <a class="nav-logo" href="#top">NP</a>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<div class="hero" id="top">
-  <div class="hero-inner">
-    <div class="open-badge">Open to opportunities in the Netherlands</div>
-    <div class="hero-eyebrow">Senior Mobile Engineer</div>
-    <h1 class="hero-name">Nivedhitha<br><em>Parthasarathy</em></h1>
-    <p class="hero-title">React Native &amp; iOS · Amsterdam, Netherlands</p>
-    <p class="hero-desc">
-      Product-minded engineer with 6.5 years building high-performance mobile applications. I own features end-to-end — from whiteboard to production — bridging technical depth with user-centric design.
-    </p>
-    <div class="hero-meta">
-      <span class="meta-pill green">✓ No sponsorship required</span>
-      <span class="meta-pill">Dutch Type D Permit</span>
-      <span class="meta-pill">React Native</span>
-      <span class="meta-pill">iOS · Swift</span>
-      <span class="meta-pill">TypeScript</span>
-    </div>
-    <div class="hero-cta">
-      <a href="mailto:nivedhithapsarati@gmail.com" class="btn btn-primary">Get in touch</a>
-      <a href="https://www.linkedin.com/in/nivedhithap" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn →</a>
-    </div>
-    <div class="hero-stats">
-      <div>
-        <div class="stat-num">6<span>.5</span></div>
-        <div class="stat-label">Years experience</div>
-      </div>
-      <div>
-        <div class="stat-num">40<span>%</span></div>
-        <div class="stat-label">Tech debt reduced</div>
-      </div>
-      <div>
-        <div class="stat-num">98<span>%+</span></div>
-        <div class="stat-label">Crash-free rate</div>
+  <nav>
+    <div class="nav-inner">
+      <a href="#top" class="nav-logo">
+        <div class="nav-mark">NP</div>
+        <div class="nav-text">
+          <span class="nav-text-main">Nivedhitha</span>
+          <span class="nav-text-sub">Senior Mobile Engineer</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#what-i-do">Approach</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
-  </div>
-</div>
+  </nav>
 
-<hr class="section-divider">
+  <main class="shell" id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="hero-kicker">Mobile engineering · Telematics & EV</div>
+        <h1 class="hero-title">I build and maintain production‑grade mobile apps for fleets, drivers, and vehicles.</h1>
+        <p class="hero-sub">React Native · iOS · Android · Maps · Analytics · Store releases</p>
+        <p class="hero-body">
+          I’m Nivedhitha, a senior mobile engineer focused on cross‑platform apps in telematics, EV fleets,
+          and vehicle management. I care about how products feel in someone’s hand and how they behave in production.
+        </p>
+        <div class="hero-meta">
+          <span class="pill pill-strong">Assetmatics · Fleetlive · myTVS DrivePlus · Montra Electric Driver</span>
+          <span class="pill">React Native · iOS · Android</span>
+          <span class="pill">Production apps & releases</span>
+        </div>
+        <div class="hero-actions">
+          <a href="#work" class="btn btn-primary">View my work</a>
+          <a href="mailto:nivedhithapsarati@gmail.com" class="btn btn-ghost">Contact me</a>
+        </div>
+      </div>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-label">Profile</div>
-  <h2 class="section-title">Who I am</h2>
-  <div class="profile-grid">
-    <div class="profile-left">
-      <p>
-        I'm a senior mobile engineer specialising in React Native and iOS, with a track record of delivering scalable, performant applications across fintech and telematics domains.
-      </p>
-      <p>
-        I think like a product owner: I ask why before I ask how. That means I bring requirements into focus before writing a single line of code, and I stay in the loop through deployment and beyond.
-      </p>
-      <p>
-        After relocating to Amsterdam in late 2024, I've been actively integrating into the Dutch tech ecosystem and am now ready to bring that energy into a new engineering team.
-      </p>
-    </div>
-    <div>
-      <ul class="profile-detail-list">
-        <li>
-          <span class="detail-key">Location</span>
-          <span class="detail-val">Amsterdam, Netherlands</span>
-        </li>
-        <li>
-          <span class="detail-key">Email</span>
-          <span class="detail-val"><a href="mailto:nivedhithapsarati@gmail.com">nivedhithapsarati@gmail.com</a></span>
-        </li>
-        <li>
-          <span class="detail-key">Phone</span>
-          <span class="detail-val">+31 623 087 724</span>
-        </li>
-        <li>
-          <span class="detail-key">LinkedIn</span>
-          <span class="detail-val"><a href="https://linkedin.com/in/nivedhithap" target="_blank">linkedin.com/in/nivedhithap</a></span>
-        </li>
-        <li>
-          <span class="detail-key">Education</span>
-          <span class="detail-val">B.E. Electronics &amp; Communication<br>Anna University · 7.9 CGPA</span>
-        </li>
-        <li>
-          <span class="detail-key">Languages</span>
-          <span class="detail-val">English (professional) · Dutch (A1) · Tamil (native)</span>
-        </li>
-        <li>
-          <span class="detail-key">Interests</span>
-          <span class="detail-val">Art &amp; novels — creative outlets that sharpen observation and user-centric thinking</span>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
+      <aside class="hero-devices">
+        <div class="device device-iphone" style="--x:-40px; --r:-4deg;">
+          <div class="device-screen">
+            <img src="assets/screenshots/assetmatics-location.png" alt="Assetmatics location screen on iPhone" />
+          </div>
+          <div class="device-glow"></div>
+        </div>
 
-<hr class="section-divider">
+        <div class="device device-android" style="--x:40px; --r:4deg;">
+          <div class="device-screen">
+            <img src="assets/screenshots/assetmatics-score.png" alt="Assetmatics score screen on Android" />
+          </div>
+          <div class="device-glow"></div>
+        </div>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-label">Work history</div>
-  <h2 class="section-title">Experience</h2>
+        <div class="hero-device-label">
+          <span>iOS & Android</span>
+          <span>Real product screenshots</span>
+        </div>
+      </aside>
+    </section>
 
-  <div class="metrics-row">
-    <div class="metric-box">
-      <div class="metric-big">40<em>%</em></div>
-      <div class="metric-desc">Technical debt reduction via functional architecture migration</div>
-    </div>
-    <div class="metric-box">
-      <div class="metric-big">98<em>%+</em></div>
-      <div class="metric-desc">Crash-free rate maintained across App Store &amp; Play Store</div>
-    </div>
-    <div class="metric-box">
-      <div class="metric-big"><em>2</em>×</div>
-      <div class="metric-desc">Companies served across fintech and telematics domains</div>
-    </div>
-  </div>
+    <!-- WORK -->
+    <section id="work">
+      <div class="section-header">
+        <div class="section-kicker">Selected work</div>
+        <h2 class="section-title">Products I’ve shipped and maintained</h2>
+        <p class="section-sub">
+          A snapshot of the apps I’ve worked on — from first versions to migrations and production releases.
+        </p>
+      </div>
 
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-meta">Apr 2022 – Sep 2024 · Chennai, India</div>
-      <div class="timeline-role">Senior Software Engineer — React Native</div>
-      <div class="timeline-company">Nesh</div>
-      <ul class="timeline-points">
-        <li>Led the full product lifecycle from brainstorming and requirements "locking" to production rollout; provided technical and UX input at every stage.</li>
-        <li>Delivered <span class="highlight-metric">high-volume, performance-sensitive React Native apps</span> in the telematics domain with seamless backend and real-time data integration.</li>
-        <li>Reduced technical debt by <span class="highlight-metric">40%</span> by migrating the codebase to modern functional architecture.</li>
-        <li>Maintained a <span class="highlight-metric">98%+ crash-free rate</span> across both app stores throughout the project lifecycle.</li>
-        <li>Automated build and release pipelines using <span class="highlight-metric">GitHub Actions and Fastlane</span>, cutting manual release overhead significantly.</li>
-        <li>Represented engineering at high-profile client events, delivering live demos and translating technical roadmaps for non-technical stakeholders.</li>
-      </ul>
-    </div>
+      <!-- 1. ASSETMATICS -->
+      <section id="assetmatics">
+        <div class="section-header" style="margin-bottom:1.4rem;">
+          <div class="section-kicker">Product · Assetmatics</div>
+          <h2 class="section-title">Assetmatics — telematics in your pocket</h2>
+          <p class="section-sub">
+            A cross‑platform app for live vehicle tracking, driving behaviour, and alert management.
+          </p>
+        </div>
 
-    <div class="timeline-item">
-      <div class="timeline-meta">May 2018 – Apr 2022 · Chennai, India</div>
-      <div class="timeline-role">System Analyst — iOS / Backend</div>
-      <div class="timeline-company">Sensiple</div>
-      <ul class="timeline-points">
-        <li>Built secure iOS prototypes in <span class="highlight-metric">Swift/MVVM</span> for capital markets clients requiring high-precision financial interfaces.</li>
-        <li>Developed backend services in <span class="highlight-metric">C# and ASP.NET</span> to improve workflow orchestration and API performance in the automation domain.</li>
-        <li>Collaborated in Agile teams to deliver end-to-end features for internal tools, focusing on UI rendering efficiency and code scalability.</li>
-      </ul>
-    </div>
+        <article class="project-card">
+          <div class="project-devices">
+            <div class="project-device project-device-iphone">
+              <div class="project-device-screen">
+                <img src="assets/screenshots/assetmatics-location.png" alt="Assetmatics live location screen" />
+              </div>
+            </div>
+            <div class="project-device project-device-android">
+              <div class="project-device-screen">
+                <img src="assets/screenshots/assetmatics-trip-details.png" alt="Assetmatics trip details screen" />
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Live vehicle location & trips</h3>
+            <p>
+              Real‑time GPS tracking with route history, trip summaries, and clear status indicators
+              for moving, idle, and stopped states.
+            </p>
+            <div class="tags">
+              <span class="tag">React Native</span>
+              <span class="tag">Maps</span>
+              <span class="tag">Real‑time APIs</span>
+            </div>
+          </div>
+        </article>
 
-    <div class="timeline-item">
-      <div class="timeline-meta">Oct 2024 – Present · Amsterdam, Netherlands</div>
-      <div class="timeline-role">Career Transition &amp; Relocation</div>
-      <div class="timeline-company">Self-directed</div>
-      <ul class="timeline-points">
-        <li>Relocated to the Netherlands; integrated into the Dutch labour market and continued upskilling in modern mobile development and frontend architecture.</li>
-        <li>Part-time work in a multicultural environment strengthened communication, adaptability, and cross-cultural collaboration.</li>
-      </ul>
-    </div>
-  </div>
-</section>
+        <article class="project-card" style="margin-top:1.6rem;">
+          <div class="project-devices">
+            <div class="project-device project-device-iphone">
+              <div class="project-device-screen">
+                <img src="assets/screenshots/assetmatics-score.png" alt="Assetmatics driving score screen" />
+              </div>
+            </div>
+            <div class="project-device project-device-android">
+              <div class="project-device-screen">
+                <img src="assets/screenshots/assetmatics-alerts.png" alt="Assetmatics alerts settings screen" />
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Driving score & alerts</h3>
+            <p>
+              Monthly driving scores, trip statistics, and configurable alerts for overspeed, harsh events,
+              theft detection, and system‑level warnings.
+            </p>
+            <div class="tags">
+              <span class="tag">Analytics</span>
+              <span class="tag">Behaviour scoring</span>
+              <span class="tag">Notifications</span>
+            </div>
+          </div>
+        </article>
 
-<hr class="section-divider">
+        <div class="card" style="margin-top:1.6rem;">
+          <h3>My role</h3>
+          <p>
+            I worked on bug fixes, new features, and ongoing improvements across Assetmatics.
+            I also handled app versioning, App Store & Play Store uploads, production maintenance,
+            and hotfix releases to keep the app stable in the wild.
+          </p>
+        </div>
+      </section>
 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="section-label">Capabilities</div>
-  <h2 class="section-title">Skills &amp; stack</h2>
+      <!-- 2. FLEETLIVE -->
+      <section id="fleetlive">
+        <div class="section-header" style="margin-top:3rem; margin-bottom:1.4rem;">
+          <div class="section-kicker">Product · Fleetlive</div>
+          <h2 class="section-title">Fleetlive — EV fleet monitoring</h2>
+          <p class="section-sub">
+            Cross‑platform EV fleet management for real‑time tracking, energy efficiency, and operational insights.
+          </p>
+        </div>
 
-  <div class="skills-grid">
-    <div class="skill-cell">
-      <div class="skill-cell-icon">📱</div>
-      <div class="skill-cell-title">Mobile development</div>
-      <div class="skill-cell-items">React Native · iOS (Swift) · Android · Push Notifications · Deep Linking</div>
-    </div>
-    <div class="skill-cell">
-      <div class="skill-cell-icon">🧩</div>
-      <div class="skill-cell-title">Architecture &amp; state</div>
-      <div class="skill-cell-items">Redux · Redux Saga · MVVM · Functional Components</div>
-    </div>
-    <div class="skill-cell">
-      <div class="skill-cell-icon">💻</div>
-      <div class="skill-cell-title">Languages</div>
-      <div class="skill-cell-items">JavaScript (ES6+) · TypeScript · Swift · C#</div>
-    </div>
-    <div class="skill-cell">
-      <div class="skill-cell-icon">🔐</div>
-      <div class="skill-cell-title">Auth &amp; security</div>
-      <div class="skill-cell-items">OAuth 2.0 · JWT · Secure data handling</div>
-    </div>
-    <div class="skill-cell">
-      <div class="skill-cell-icon">🚀</div>
-      <div class="skill-cell-title">DevOps &amp; CI/CD</div>
-      <div class="skill-cell-items">GitHub Actions · Fastlane · Git · CI/CD pipelines</div>
-    </div>
-    <div class="skill-cell">
-      <div class="skill-cell-icon">🧪</div>
-      <div class="skill-cell-title">Testing &amp; quality</div>
-      <div class="skill-cell-items">Jest · Detox · Unit testing · Integration testing</div>
-    </div>
-    <div class="skill-cell">
-      <div class="skill-cell-icon">⚙️</div>
-      <div class="skill-cell-title">Backend &amp; APIs</div>
-      <div class="skill-cell-items">ASP.NET · REST APIs · Firebase · Postman</div>
-    </div>
-    <div class="skill-cell">
-      <div class="skill-cell-icon">🤝</div>
-      <div class="skill-cell-title">Ways of working</div>
-      <div class="skill-cell-items">Agile/Scrum · Code reviews · Cross-functional collaboration · Feature ownership</div>
-    </div>
-  </div>
+        <article class="project-card">
+          <div class="project-devices">
+            <div class="project-device project-device-iphone">
+              <div class="project-device-screen">
+                <img src="assets/screenshots/fleetlive-dashboard.png" alt="Fleetlive dashboard summary" />
+              </div>
+            </div>
+            <div class="project-device project-device-android">
+              <div class="project-device-screen">
+                <img src="assets/screenshots/fleetlive-tracking.png" alt="Fleetlive tracking fleet map" />
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>EV fleet overview & tracking</h3>
+            <p>
+              Fleet‑level dashboards with fleet strength, status breakdown (moving, stop, charging, offline),
+              and live maps showing vehicles across regions.
+            </p>
+            <div class="tags">
+              <span class="tag">React Native</span>
+              <span class="tag">EV fleets</span>
+              <span class="tag">Maps & tracking</span>
+            </div>
+          </div>
+        </article>
 
-  <div style="margin-top: 2.5rem;">
-    <div style="font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem;">Core technologies</div>
-    <div class="tag-cloud">
-      <span class="tag core">React Native</span>
-      <span class="tag core">TypeScript</span>
-      <span class="tag core">Swift</span>
-      <span class="tag core">Redux</span>
-      <span class="tag core">GitHub Actions</span>
-      <span class="tag">Fastlane</span>
-      <span class="tag">Jest</span>
-      <span class="tag">Detox</span>
-      <span class="tag">OAuth 2.0</span>
-      <span class="tag">REST APIs</span>
-      <span class="tag">Firebase</span>
-      <span class="tag">ASP.NET</span>
-      <span class="tag">C#</span>
-      <span class="tag">Xcode</span>
-      <span class="tag">Android Studio</span>
-      <span class="tag">Jira</span>
-      <span class="tag">MVVM</span>
-      <span class="tag">Redux Saga</span>
-      <span class="tag">Deep Linking</span>
-      <span class="tag">Push Notifications</span>
-    </div>
-  </div>
-</section>
+        <article class="project-card" style="margin-top:1.6rem;">
+          <div class="project-devices">
+            <div class="project-device project-device-iphone">
+              <div class="project-device-screen">
+                <img src="assets/screenshots/fleetlive-vehicle-summary.png" alt="Fleetlive vehicle summary" />
+              </div>
+            </div>
+            <div class="project-device project-device-android">
+              <div class="project-device-screen">
+                <img src="assets/screenshots/fleetlive-trips.png" alt="Fleetlive trips and odometer" />
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Vehicle‑level insights & trips</h3>
+            <p>
+              Per‑vehicle distance, energy efficiency, charging count, battery, odometer,
+              and detailed trip logs with start/end odometer and distance.
+            </p>
+            <div class="tags">
+              <span class="tag">Analytics</span>
+              <span class="tag">Energy efficiency</span>
+              <span class="tag">Trip logs</span>
+            </div>
+          </div>
+        </article>
 
-<hr class="section-divider">
+        <div class="card" style="margin-top:1.6rem;">
+          <h3>My role</h3>
+          <p>
+            I built the Fleetlive mobile app from scratch, owning the entire mobile engineering lifecycle —
+            architecture, feature development, performance optimization, API integration, analytics, and production releases.
+            I worked on dashboard, tracking, summaries, trips, and insights, optimized maps (clustering, rendering),
+            implemented push notifications, restructured code, optimized images, wrote API documentation in Postman,
+            reported API vulnerabilities, integrated Firebase Analytics, and handled app versioning, store uploads,
+            and production hotfixes.
+          </p>
+        </div>
+      </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-label">Let's talk</div>
-  <h2 class="section-title">Get in touch</h2>
-  <p style="color: var(--text-muted); max-width: 480px; margin-bottom: 2rem; line-height: 1.8;">
-    I'm actively looking for senior mobile engineering roles in Amsterdam (or remote). If you're building something meaningful and need someone who ships, let's have a conversation.
-  </p>
-  <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-    <a href="mailto:nivedhithapsarati@gmail.com" class="btn btn-primary">nivedhithapsarati@gmail.com</a>
-    <a href="https://www.linkedin.com/in/nivedhithap" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn →</a>
-    <a href="tel:+31623087724" class="btn btn-ghost">+31 623 087 724</a>
-  </div>
-</section>
+      <!-- 3. MONTRA ELECTRIC DRIVER -->
+      <section id="montra">
+        <div class="section-header" style="margin-top:3rem; margin-bottom:1.4rem;">
+          <div class="section-kicker">Product · Montra Electric Driver</div>
+          <h2 class="section-title">Montra Electric Driver — EV driver companion</h2>
+          <p class="section-sub">
+            A mobile app for EV drivers to manage vehicles, documents, service schedules, and driver profiles.
+          </p>
+        </div>
 
-<footer>
-  Nivedhitha Parthasarathy · Senior Mobile Engineer · Amsterdam &nbsp;·&nbsp; Built for job interviews 2025
-</footer>
+        <article class="project-card">
+          <div class="project-devices">
+            <div class="project-device project-device-iphone">
+              <div class="project-device-screen">
+                <img src="assets/screenshots/montra-profile.png" alt="Montra Electric Driver profile screen" />
+              </div>
+            </div>
+            <div class="project-device project-device-android">
+              <div class="project-device-screen">
+                <img src="assets/screenshots/montra-vehicle-management.png" alt="Montra Electric Driver vehicle management" />
+              </div>
+            </div>
+          </div>
 
+          <div class="project-body">
+            <h3>Engineering upgrade & backend migration</h3>
+            <p>
+              I migrated the data storage layer from AWS GraphQL to a GCP API‑based structure,
+              refactored API integration logic, upgraded React Native and supporting libraries,
+              and ensured a smooth transition without breaking existing features.
+            </p>
+            <div class="tags">
+              <span class="tag">React Native upgrade</span>
+              <span class="tag">AWS → GCP migration</span>
+              <span class="tag">API refactor</span>
+              <span class="tag">Production engineering</span>
+            </div>
+          </div>
+        </article>
+
+        <div class="card" style="margin-top:1.6rem;">
+          <h3>My role</h3>
+          <p>
+            I transferred the data storage link from AWS GraphQL to a GCP API structure, upgraded React Native,
+            updated supporting libraries, and ensured backward compatibility. I did not work on the UI — this was
+            a deep engineering upgrade focused on stability and future‑proofing.
+          </p>
+        </div>
+      </section>
+
+      <!-- 4. MYTVS DRIVEPLUS -->
+      <section id="mytvs">
+        <div class="section-header" style="margin-top:3rem; margin-bottom:1.4rem;">
+          <div class="section-kicker">Product · myTVS DrivePlus</div>
+          <h2 class="section-title">myTVS DrivePlus — vehicle reports UI</h2>
+          <p class="section-sub">
+            Clean, data‑driven screens for daily vehicle reports, summaries, and alerts.
+          </p>
+        </div>
+
+        <article class="project-card">
+          <div class="project-devices">
+            <div class="project-device project-device-iphone">
+              <div class="project-device-screen">
+                <img src="assets/screenshots/mytvs-vehicle-report.png" alt="myTVS DrivePlus vehicle report detail" />
+              </div>
+            </div>
+            <div class="project-device project-device-android">
+              <div class="project-device-screen">
+                <img src="assets/screenshots/mytvs-vehicle-summary.png" alt="myTVS DrivePlus vehicle summary" />
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Daily vehicle reports & summaries</h3>
+            <p>
+              UI for per‑vehicle reports with distance, max speed, moving/idle/stop time,
+              and alert counts — designed for quick scanning by operations teams.
+            </p>
+            <div class="tags">
+              <span class="tag">UI design</span>
+              <span class="tag">Data‑heavy screens</span>
+              <span class="tag">Fleet operations</span>
+            </div>
+          </div>
+        </article>
+
+        <div class="card" style="margin-top:1.6rem;">
+          <h3>My role</h3>
+          <p>
+            I developed the initial app features for myTVS DrivePlus, including login, dashboard,
+            and vehicle details UI screens, focusing on clarity, hierarchy, and making complex vehicle
+            data easy to read on mobile.
+          </p>
+        </div>
+      </section>
+    </section>
+
+    <!-- WHAT I DO -->
+    <section id="what-i-do">
+      <div class="section-header">
+        <div class="section-kicker">Approach</div>
+        <h2 class="section-title">How I think about mobile products</h2>
+        <p class="section-sub">
+          Less “screens”, more “flows”. I care about how the app feels in someone’s hands and how it behaves in production.
+        </p>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Product‑aware engineering</h3>
+          <p>
+            I work with product and design to shape features, not just implement tickets —
+            especially in complex domains like telematics and EV fleets.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Cross‑platform, one experience</h3>
+          <p>
+            I build for iOS and Android with a single codebase, while respecting platform patterns
+            and performance constraints.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Stable, observable releases</h3>
+          <p>
+            I care about crash‑free sessions, logging, and metrics so we know how the app behaves in production.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Ownership beyond code</h3>
+          <p>
+            I handle app versioning, store uploads, hotfixes, and documentation so the product can move quickly and safely.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="section-header">
+        <div class="section-kicker">Experience</div>
+        <h2 class="section-title">Where this comes from</h2>
+        <p class="section-sub">
+          A condensed view of my background. The résumé has the full detail.
+        </p>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Nesh · Telematics</h3>
+          <p>
+            Senior Software Engineer — React Native<br />
+            2022 – 2024 · Chennai, India
+          </p>
+        </div>
+        <div class="card">
+          <h3>Sensiple · Fintech</h3>
+          <p>
+            System Analyst — iOS & Backend<br />
+            2018 – 2022 · Chennai, India<br /><br />
+            Localization & Internationalization (R&D): worked on Arabic ↔ English localization,
+            including RTL layout handling, dynamic language switching, and bidirectional UI logic.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Netherlands</h3>
+          <p>
+            Relocation & upskilling<br />
+            2024 – Present · Amsterdam, Netherlands
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section>
+      <div class="section-header">
+        <div class="section-kicker">Skills</div>
+        <h2 class="section-title">Tools I use to ship apps</h2>
+        <p class="section-sub">
+          The stack behind products like Assetmatics, Fleetlive, myTVS DrivePlus, and Montra Electric Driver.
+        </p>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Mobile</h3>
+          <p>React Native · iOS · Android</p>
+        </div>
+        <div class="card">
+          <h3>Languages</h3>
+          <p>TypeScript · JavaScript · Swift · C#</p>
+        </div>
+        <div class="card">
+          <h3>Architecture</h3>
+          <p>Redux · MVVM · modular features</p>
+        </div>
+        <div class="card">
+          <h3>Delivery</h3>
+          <p>GitHub Actions · Fastlane · CI/CD · Store releases</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-header">
+        <div class="section-kicker">Contact</div>
+        <h2 class="section-title">Let’s talk</h2>
+        <p class="section-sub">
+          Open to senior mobile roles where telematics, mobility, or data‑heavy apps matter.
+        </p>
+      </div>
+
+      <div class="contact-card">
+        <p>Email: <strong>nivedhithapsarati@gmail.com</strong></p>
+        <p>Phone: <strong>+31 6 23 08 77 24</strong></p>
+        <p>Location: Amsterdam, Netherlands</p>
+        <a href="mailto:nivedhithapsarati@gmail.com" class="btn btn-primary" style="margin-top:0.8rem;">Email me</a>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 · Portfolio by Nivedhitha · Built as a companion to my résumé, not a copy of it.
+    </footer>
+  </main>
 </body>
 </html>
