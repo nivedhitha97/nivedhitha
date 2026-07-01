@@ -1,994 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>Nivedhitha Parthasarathy — Senior Mobile Engineer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Linear-style typography -->
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Spectral:wght@400;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
     rel="stylesheet">
-
   <style>
     :root {
-      /* Linear-style color system */
-      --bg: #ffffff;
-      --bg-soft: #f8fafc;
-      --bg-gradient: radial-gradient(circle at top left, #f0f4ff 0%, #ffffff 60%);
-      --text-main: #0f172a;
-      --text-sub: #475569;
-      --border: #e2e8f0;
-      --accent: #10b981;
-      /* emerald */
-      --accent-soft: rgba(16, 185, 129, 0.12);
-
-      /* Linear-style spacing scale */
-      --space-1: 0.4rem;
-      --space-2: 0.8rem;
-      --space-3: 1.2rem;
-      --space-4: 1.8rem;
-      --space-5: 2.6rem;
-      --space-6: 3.8rem;
-
-      /* Linear-style radii */
-      --radius-md: 14px;
-      --radius-lg: 20px;
-
-      /* Linear-style shadows */
-      --shadow-card: 0 12px 32px rgba(15, 23, 42, 0.08);
-      --shadow-card-active: 0 28px 80px rgba(15, 23, 42, 0.18);
+      --bg: #080C18;
+      --bg-card: #0F1524;
+      --bg-surface: #151C30;
+      --border: rgba(255, 255, 255, 0.07);
+      --border-hover: rgba(245, 166, 35, 0.35);
+      --text: #F0EDE6;
+      --text-sub: #8A8FA8;
+      --text-muted: #4A506A;
+      --gold: #F5A623;
+      --gold-soft: rgba(245, 166, 35, 0.1);
+      --r-sm: 10px;
+      --r-md: 16px;
+      --r-lg: 24px;
+      --r-xl: 32px;
     }
 
-    * {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Inter, system-ui, sans-serif;
-      background: var(--bg-gradient);
-      color: var(--text-main);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       -webkit-font-smoothing: antialiased;
-      padding-bottom: 6rem;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 60px;
+      background: rgba(8, 12, 24, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #080C18;
+      background: var(--gold);
+      padding: 0.45rem 1.1rem;
+      border-radius: 8px;
+      text-decoration: none;
     }
 
     main {
-      max-width: 1080px;
+      padding-top: 60px;
+    }
+
+    .section-wrap {
+      max-width: 1100px;
       margin: 0 auto;
-      padding: var(--space-5) var(--space-3);
+      padding: 4rem 2rem;
     }
 
-    /* TYPOGRAPHY — Linear scale */
-    h1 {
-      font-family: Spectral, serif;
-      font-size: 3.2rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-    }
-
-    h2 {
-      font-size: 1.9rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      margin-bottom: var(--space-2);
-    }
-
-    h3 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: var(--space-1);
-    }
-
-    p {
-      font-size: 1rem;
-      line-height: 1.55;
-      color: var(--text-sub);
-    }
-
-    /* HERO — Linear spacing */
-    .hero {
-  margin-bottom: var(--space-6);
-}
-
-.hero-name {
-  font-family: Spectral, serif;
-  font-size: 3.4rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  margin-bottom: var(--space-4);
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: var(--space-6);
-  align-items: center;
-}
-
-
-    .hero-content {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-3);
-    }
-
-    .hero-pill {
+    .btn-gold {
       display: inline-flex;
-      gap: var(--space-1);
-      background: var(--accent-soft);
-      padding: 0.45rem 0.9rem;
-      border-radius: var(--radius-pill);
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--accent);
-    }
-
-    .hero-title {
-      font-size: 1.6rem;
-      font-weight: 500;
-      max-width: 32rem;
-      line-height: 1.35;
-    }
-
-    .hero-sub {
-      max-width: 34rem;
-      font-size: 1.05rem;
-      color: var(--text-sub);
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: var(--space-2);
-      margin-top: var(--space-2);
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-      padding: 0.7rem 1.4rem;
-      border-radius: var(--radius-md);
-      font-weight: 500;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold);
+      color: #080C18;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--r-sm);
       text-decoration: none;
-      transition: background 0.2s ease;
+      transition: opacity 0.2s, transform 0.2s;
     }
 
-    .btn-primary:hover {
-      background: #0ea271;
+    .btn-gold:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
     }
 
-    .btn-ghost {
-      padding: 0.7rem 1.4rem;
-      border-radius: var(--radius-md);
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      background: transparent;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--r-sm);
       border: 1px solid var(--border);
       text-decoration: none;
-      color: var(--text-main);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--border-hover);
+      background: var(--gold-soft);
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 4rem;
+      align-items: center;
+      padding-top: 4rem;
+      padding-bottom: 3rem;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
       font-weight: 500;
-      background: white;
-      transition: all 0.2s ease;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid rgba(245, 166, 35, 0.3);
+      border-radius: 100px;
+      width: fit-content;
     }
 
-    .btn-ghost:hover {
-      background: var(--bg-soft);
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2s ease-in-out infinite;
     }
 
-    .hero-device {
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(0.7);
+      }
+    }
+
+    .hero-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--text-sub);
+      max-width: 34rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-bottom: 2.4rem;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.9rem;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .stat-divider {
+      width: 1px;
+      background: var(--border);
+      align-self: stretch;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-visual {
       display: flex;
       justify-content: center;
       align-items: center;
-      perspective: 1600px;
-    }
-
-    .hero-devices {
       position: relative;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      perspective: 1600px;
-      margin-top: var(--space-4);
+      perspective: 1400px;
     }
 
-    /* Ambient glow container */
-    .hero-devices::before {
-      content: "";
+    .phones-stack {
+      position: relative;
+      width: 240px;
+      height: 480px;
+    }
+
+    .phone-back {
       position: absolute;
-      width: 420px;
-      height: 420px;
-      border-radius: 50%;
-      background: radial-gradient(circle,
-          rgba(16, 185, 129, 0.22) 0%,
-          rgba(16, 185, 129, 0.08) 40%,
-          rgba(16, 185, 129, 0) 70%);
-      filter: blur(60px);
+      top: 30px;
+      left: -30px;
+      width: 195px;
+      opacity: 0.4;
+      transform: rotate(-5deg) scale(0.92);
       z-index: 1;
-      animation: ambientGlow 6s ease-in-out infinite;
+    }
+
+    .phone-front {
+      position: absolute;
+      top: 0;
+      left: 22px;
+      width: 195px;
+      z-index: 2;
+      transform-style: preserve-3d;
+      transition: transform 0.12s ease;
+    }
+
+    .phone-frame {
+      background: linear-gradient(155deg, #252D48 0%, #141A2E 100%);
+      border-radius: 36px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      padding: 9px;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+      overflow: hidden;
+    }
+
+    .phone-screen-img {
+      width: 100%;
+      border-radius: 28px;
+      display: block;
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245, 166, 35, 0.09) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .section-eyebrow {
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-sub);
+      max-width: 40rem;
+    }
+
+    /* ── WORK SECTION ── */
+    #work {
+      padding: 5rem 0 7rem;
+    }
+
+    .work-header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem 3rem;
+    }
+
+    /* Carousel viewport */
+    .carousel-outer {
+      position: relative;
+      overflow: hidden;
+      padding: 2rem 0 3rem;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 2rem;
+      padding: 0 2rem;
+      transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+      cursor: grab;
+      align-items: flex-start;
+    }
+
+    .carousel-track:active {
+      cursor: grabbing;
+    }
+
+    /* ── PROJECT CARD ── */
+    .proj-card {
+      flex-shrink: 0;
+      width: 680px;
+      background: var(--bg-card);
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition:
+        transform 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: scale(0.88) translateY(20px);
+      opacity: 0.45;
+      box-shadow: none;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .proj-card.active {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+      box-shadow:
+        0 0 0 1px var(--card-accent-rgba),
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        0 24px 80px rgba(0, 0, 0, 0.5),
+        0 0 60px var(--card-glow);
+      border-color: var(--card-accent-rgba);
+      pointer-events: all;
+    }
+
+    .proj-card.adjacent {
+      transform: scale(0.93) translateY(12px);
+      opacity: 0.6;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      pointer-events: all;
+      cursor: pointer;
+    }
+
+    /* ── PHONE STAGE (top half) ── */
+    .card-phone-stage {
+      position: relative;
+      height: 320px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 0;
+      padding: 0 1rem;
+      overflow: hidden;
+    }
+
+    .card-phone-stage::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, var(--bg-card) 100%);
+      z-index: 2;
       pointer-events: none;
     }
 
-    /* Soft breathing glow */
-    /* @keyframes ambientGlow {
-      0% {
-        transform: scale(0.92);
-        opacity: 0.55;
-      }
-
-      50% {
-        transform: scale(1.05);
-        opacity: 0.75;
-      }
-
-      100% {
-        transform: scale(0.92);
-        opacity: 0.55;
-      }
-    } */
-
-    .device {
-      width: 180px;
-      transform-style: preserve-3d;
-      opacity: 0;
-      z-index: 2;
-
-      /* One clean animation stack */
-      animation:
-        fadeInDevice 1s cubic-bezier(0.16, 1, 0.3, 1) forwards,
-        floatSoft 7s ease-in-out infinite 1s;
+    /* Ambient glow blob behind phones */
+    .stage-glow {
+      position: absolute;
+      width: 320px;
+      height: 220px;
+      border-radius: 50%;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      filter: blur(60px);
+      opacity: 0.18;
+      z-index: 0;
+      pointer-events: none;
+      transition: background 0.5s;
     }
 
-
-    /* Soft floating motion */
-    @keyframes floatSoft {
-      0% {
-        transform: translateY(18px) rotateX(6deg) rotateY(var(--tilt));
-      }
-
-      50% {
-        transform: translateY(6px) rotateX(5deg) rotateY(calc(var(--tilt) + 1deg));
-      }
-
-      100% {
-        transform: translateY(18px) rotateX(6deg) rotateY(var(--tilt));
-      }
-    }
-
-
-    /* iOS device tilt */
-    .device.ios {
-      transform: rotateY(-14deg) rotateX(6deg) translateY(20px);
-      animation-delay: 0.2s;
-    }
-
-    /* Android device tilt */
-    .device.android {
-      transform: rotateY(14deg) rotateX(6deg) translateY(20px);
-      animation-delay: 0.4s;
-    }
-
-    /* Device frame */
-    .device-frame {
-      background: linear-gradient(145deg, #ffffff, #f1f5f9);
-      padding: 10px;
-      border-radius: 26px;
-      box-shadow:
-        0 20px 40px rgba(15, 23, 42, 0.12),
-        0 8px 20px rgba(15, 23, 42, 0.06);
-      overflow: hidden;
-      transform: translateZ(40px);
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow 0.6s ease;
-    }
-
-    /* Screen */
-    .device-frame img {
-      width: 100%;
-      border-radius: 20px;
-      display: block;
-    }
-
-    .device.ios {
-      --tilt: -14deg;
-    }
-
-    .device.android {
-      --tilt: 14deg;
-    }
-
-    @keyframes fadeInDevice {
-      from {
-        opacity: 0;
-        transform: translateY(40px) scale(0.96);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(18px) scale(1);
-      }
-    }
-
-
-    /* Hover lift */
-    .device:hover .device-frame {
-      transform: translateZ(60px) scale(1.04);
-      box-shadow:
-        0 32px 80px rgba(15, 23, 42, 0.18),
-        0 12px 32px rgba(15, 23, 42, 0.12);
-    }
-
-
-    .hero-device-frame {
-      width: 100%;
-      max-width: 360px;
-      border-radius: 28px;
-      padding: 10px;
-      background: linear-gradient(145deg, #ffffff, #f1f5f9);
-      box-shadow:
-        0 20px 40px rgba(15, 23, 42, 0.12),
-        0 8px 20px rgba(15, 23, 42, 0.06);
-      transform-style: preserve-3d;
-      transform: translateY(20px) scale(0.96);
-      opacity: 0;
-      /* animation: heroDeviceEnter 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s; */
+    /* Individual phone slots */
+    .phone-slot {
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
       transition:
-        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow 0.6s ease;
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        opacity 0.4s ease,
+        z-index 0s;
+      cursor: pointer;
     }
 
-    .hero-device-screen {
-      border-radius: 22px;
+    .phone-slot.slot-active {
+      transform: translateY(-28px) scale(1.13);
+      z-index: 5;
+      opacity: 1;
+      cursor: default;
+    }
+
+    .phone-slot.slot-left-1 {
+      transform: translateX(24px) translateY(10px) scale(0.84) rotate(-4deg);
+      opacity: 0.45;
+      z-index: 3;
+    }
+
+    .phone-slot.slot-left-2 {
+      transform: translateX(44px) translateY(22px) scale(0.74) rotate(-7deg);
+      opacity: 0.25;
+      z-index: 2;
+    }
+
+    .phone-slot.slot-right-1 {
+      transform: translateX(-24px) translateY(10px) scale(0.84) rotate(4deg);
+      opacity: 0.45;
+      z-index: 3;
+    }
+
+    .phone-slot.slot-right-2 {
+      transform: translateX(-44px) translateY(22px) scale(0.74) rotate(7deg);
+      opacity: 0.25;
+      z-index: 2;
+    }
+
+    .phone-slot.slot-hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.6);
+    }
+
+    .phone-bezel {
+      width: 110px;
+      background: linear-gradient(155deg, #1E2540 0%, #0D1226 100%);
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 6px;
       overflow: hidden;
-      transform: translateZ(40px);
     }
 
-    .hero-device-screen img {
+    .phone-slot.slot-active .phone-bezel {
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    .phone-bezel img {
       width: 100%;
+      border-radius: 18px;
       display: block;
     }
 
-    /* Entrance animation */
-    /* @keyframes heroDeviceEnter {
+    /* Screen nav dots inside card */
+    .screen-dots {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 5px;
+      z-index: 10;
+    }
+
+    .screen-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: background 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+
+    .screen-dot.active {
+      background: white;
+      transform: scale(1.3);
+    }
+
+    /* ── CARD CONTENT (bottom half) ── */
+    .card-content {
+      padding: 0.5rem 2rem 2rem;
+    }
+
+    /* Accent bar */
+    .card-accent-bar {
+      height: 2px;
+      width: 36px;
+      border-radius: 1px;
+      margin-bottom: 1.2rem;
+    }
+
+    .card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.3rem;
+    }
+
+    .card-tagline {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      line-height: 1.5;
+      margin-bottom: 1.4rem;
+    }
+
+    /* Inner tabs */
+    .card-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.2rem;
+    }
+
+    .card-tab {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 0.5rem 1rem;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+      margin-bottom: -1px;
+    }
+
+    .card-tab.active {
+      color: var(--text);
+    }
+
+    .card-pane {
+      display: none;
+    }
+
+    .card-pane.active {
+      display: block;
+      animation: fadeUp 0.25s ease;
+    }
+
+    @keyframes fadeUp {
       from {
         opacity: 0;
-        transform: translateY(40px) scale(0.92);
+        transform: translateY(6px);
       }
 
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    } */
-
-    /* Hover glow + lift */
-    .hero-device-frame:hover {
-      transform: translateY(-6px) scale(1.02) rotateX(2deg) rotateY(-2deg);
-      box-shadow:
-        0 32px 80px rgba(15, 23, 42, 0.18),
-        0 12px 32px rgba(15, 23, 42, 0.12);
-    }
-
-    /* 
-    .hero-device-inner {
-      width: 100%;
-      max-width: 360px;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-card);
-      transform: translateY(12px);
-      opacity: 0;
-      animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s; 
-    } */
-
-    .hero-device-inner img {
-      width: 100%;
-      display: block;
-    }
-
-    .work-heading {
-      font-size: 1.9rem;
-      font-weight: 600;
-      margin-bottom: var(--space-1);
-    }
-
-    .work-sub {
-      font-size: 1.05rem;
-      color: var(--text-sub);
-      margin-bottom: var(--space-4);
-    }
-
-    .work-track-wrapper {
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding-bottom: var(--space-4);
-    }
-
-    .work-track {
-      display: flex;
-      gap: var(--space-4);
-      padding: var(--space-2);
-    }
-
-    .work-card {
-      flex: 0 0 72%;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: var(--space-4);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-4);
-      scroll-snap-align: center;
-      box-shadow: var(--shadow-card);
-      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .work-card.active {
-      transform: translateY(-12px) scale(1.03);
-      box-shadow: var(--shadow-card-active);
-      opacity: 1;
-    }
-
-    .work-card:not(.active) {
-      transform: translateY(6px) scale(0.94);
-      opacity: 0.4;
-      filter: blur(2px);
-    }
-
-    .work-device-inner {
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      box-shadow: var(--shadow-card);
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .work-card.active .work-device-inner {
-      transform: translateY(-6px) scale(1.06);
-    }
-
-    .work-card:not(.active) .work-device-inner {
-      transform: translateY(6px) scale(0.92);
-    }
-
-    .work-content h3,
-    .work-content p,
-    .work-tags {
-      transition: opacity 0.4s ease-out 0.15s, transform 0.4s ease-out 0.15s;
-    }
-
-    .work-card.active h3,
-    .work-card.active p,
-    .work-card.active .work-tags {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .work-card:not(.active) h3,
-    .work-card:not(.active) p,
-    .work-card:not(.active) .work-tags {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-
-    .work-tags {
-      display: flex;
-      gap: var(--space-1);
-      margin-top: var(--space-2);
-    }
-
-    .work-tags span {
-      background: var(--bg-soft);
-      padding: 0.35rem 0.7rem;
-      border-radius: var(--radius-pill);
-      font-size: 0.8rem;
-      color: var(--text-sub);
-      border: 1px solid var(--border);
-    }
-
-
-    /* @keyframes fadeUp {
       to {
         opacity: 1;
         transform: translateY(0);
       }
-    } */
-
-    /* WORK SECTION — Linear card style */
-    .work-track-wrapper {
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding-bottom: var(--space-4);
     }
 
-    .work-track {
-      display: flex;
-      gap: var(--space-4);
-      padding: var(--space-2);
+    .card-about {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--text-sub);
     }
 
-    .work-card {
-      flex: 0 0 72%;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: var(--space-4);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-4);
-      scroll-snap-align: center;
-      box-shadow: var(--shadow-card);
-      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .work-card.active {
-      transform: translateY(-12px) scale(1.03);
-      box-shadow: var(--shadow-card-active);
-      opacity: 1;
-    }
-
-    .work-card:not(.active) {
-      transform: translateY(6px) scale(0.94);
-      opacity: 0.4;
-      filter: blur(2px);
-    }
-
-    /* Device parallax */
-    .work-device-inner {
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .work-card.active .work-device-inner {
-      transform: translateY(-6px) scale(1.06);
-    }
-
-    .work-card:not(.active) .work-device-inner {
-      transform: translateY(6px) scale(0.92);
-    }
-
-    /* Content reveal */
-    .work-card.active h3,
-    .work-card.active p {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.4s ease-out 0.15s, transform 0.4s ease-out 0.15s;
-    }
-
-    .work-card:not(.active) h3,
-    .work-card:not(.active) p {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-
-    .exp-heading {
-      font-size: 1.9rem;
-      font-weight: 600;
-      margin-bottom: var(--space-3);
-    }
-
-    .exp-list {
+    .contrib-list {
+      list-style: none;
       display: flex;
       flex-direction: column;
-      gap: var(--space-4);
+      gap: 0.6rem;
+    }
+
+    .contrib-item {
+      display: flex;
+      gap: 0.7rem;
+      font-size: 0.84rem;
+      line-height: 1.6;
+      color: var(--text-sub);
+    }
+
+    .contrib-bullet {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      margin-top: 0.55rem;
+      flex-shrink: 0;
+    }
+
+    .card-tags {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+    }
+
+    .tag {
+      font-size: 0.71rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.25rem 0.6rem;
+      border-radius: 100px;
+    }
+
+    /* ── CAROUSEL CONTROLS ── */
+    .carousel-controls {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .carousel-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      transition: background 0.25s, transform 0.25s, width 0.25s;
+      cursor: pointer;
+    }
+
+    .carousel-dot.active {
+      background: var(--gold);
+      transform: scale(1.3);
+    }
+
+    .carousel-arrows {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .carr-arrow {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-sub);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .carr-arrow:hover:not(:disabled) {
+      border-color: rgba(245, 166, 35, 0.4);
+      color: var(--text);
+      background: var(--gold-soft);
+    }
+
+    .carr-arrow:disabled {
+      opacity: 0.2;
+      cursor: default;
+    }
+
+    /* EXPERIENCE */
+    #experience {
+      padding-top: 0;
+    }
+
+    .exp-timeline {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .exp-timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 24px;
+      bottom: 24px;
+      width: 1px;
+      background: var(--border);
     }
 
     .exp-item {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: var(--space-4);
-      box-shadow: var(--shadow-card);
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 1.5rem;
+      padding: 2rem 0;
     }
 
-    .exp-item h3 {
-      margin-bottom: var(--space-1);
+    .exp-item+.exp-item {
+      border-top: 1px solid var(--border);
+    }
+
+    .exp-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.2);
+      margin-top: 4px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .exp-role {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .exp-company {
+      font-size: 0.85rem;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+    }
+
+    .exp-desc {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text-sub);
+      margin-bottom: 0.9rem;
     }
 
     .exp-tags {
       display: flex;
-      gap: var(--space-1);
-      margin-top: var(--space-2);
+      gap: 0.4rem;
+      flex-wrap: wrap;
     }
 
-    .exp-tags span {
-      background: var(--bg-soft);
-      padding: 0.35rem 0.7rem;
-      border-radius: var(--radius-pill);
-      font-size: 0.8rem;
-      color: var(--text-sub);
-      border: 1px solid var(--border);
-    }
-
-    .arch-heading {
-      font-size: 1.9rem;
-      font-weight: 600;
-      margin-bottom: var(--space-1);
-    }
-
-    .arch-sub {
-      font-size: 1.05rem;
-      color: var(--text-sub);
-      margin-bottom: var(--space-4);
-      max-width: 36rem;
+    /* ARCHITECTURE */
+    #architecture {
+      padding-top: 0;
     }
 
     .arch-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: var(--space-4);
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
     }
 
     .arch-card {
-      background: var(--bg);
+      background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: var(--space-4);
-      box-shadow: var(--shadow-card);
+      border-radius: var(--r-md);
+      padding: 1.8rem;
+      transition: border-color 0.3s;
+    }
+
+    .arch-card:hover {
+      border-color: rgba(245, 166, 35, 0.2);
+    }
+
+    .arch-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--r-sm);
+      background: var(--gold-soft);
+      border: 1px solid rgba(245, 166, 35, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .arch-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .arch-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .arch-desc {
+      font-size: 0.87rem;
+      line-height: 1.6;
+      color: var(--text-sub);
+    }
+
+    /* CONTACT */
+    #contact {
+      padding-top: 0;
+      padding-bottom: 8rem;
+    }
+
+    .contact-inner {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
     }
 
     .contact-heading {
-      font-size: 1.9rem;
-      font-weight: 600;
-      margin-bottom: var(--space-1);
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .contact-heading em {
+      font-style: italic;
+      color: var(--gold);
     }
 
     .contact-sub {
-      font-size: 1.05rem;
+      font-size: 0.95rem;
+      line-height: 1.65;
       color: var(--text-sub);
-      margin-bottom: var(--space-4);
-      max-width: 32rem;
+      margin-bottom: 2rem;
     }
 
-    .contact-box {
-      background: var(--bg);
+    .contact-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.1rem 1.2rem;
+      background: var(--bg-surface);
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: var(--space-4);
-      margin-bottom: var(--space-3);
-      box-shadow: var(--shadow-card);
+      border-radius: var(--r-md);
+      transition: border-color 0.2s;
     }
 
-    .contact-box a {
-      color: var(--accent);
+    .contact-row:hover {
+      border-color: var(--border-hover);
+    }
+
+    .contact-row-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--r-sm);
+      background: var(--gold-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-row-icon svg {
+      width: 15px;
+      height: 15px;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .contact-row-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 0.15rem;
+    }
+
+    .contact-row-val {
+      font-size: 0.88rem;
+      color: var(--text);
       font-weight: 500;
-      text-decoration: none;
     }
 
-    .contact-btn {
-      display: inline-block;
-      background: var(--accent);
-      color: white;
-      padding: 0.8rem 1.6rem;
-      border-radius: var(--radius-md);
-      font-weight: 500;
+    .contact-row-val a {
+      color: var(--text);
       text-decoration: none;
-      transition: background 0.2s ease;
+      transition: color 0.2s;
     }
 
-    .contact-btn:hover {
-      background: #0ea271;
+    .contact-row-val a:hover {
+      color: var(--gold);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media(max-width:900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        gap: 3rem;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .proj-card {
+        width: calc(100vw - 3rem);
+      }
+
+      .carousel-track {
+        padding: 0 1.5rem;
+      }
+
+      .arch-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-inner {
+        grid-template-columns: 1fr;
+        padding: 2.5rem;
+        gap: 2.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media(max-width:600px) {
+      .section-wrap {
+        padding: 4rem 1.2rem;
+      }
+
+      .hero-stats {
+        gap: 1.5rem;
+      }
+
+      .card-phone-stage {
+        height: 260px;
+      }
     }
   </style>
 </head>
 
 <body>
+
+  <nav>
+    <a href="#" class="nav-logo">NP<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#architecture">Principles</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Let's talk</a>
+  </nav>
+
   <main>
-    <section class="hero">
 
-      <!-- Top-level name -->
-      <h1 class="hero-name">Nivedhitha Parthasarathy</h1>
-    
-      <!-- Two-column hero grid -->
-      <div class="hero-grid">
-    
-        <!-- Left column: content -->
-        <div class="hero-content">
-          <div class="hero-pill">
-            <span>📱 Senior Mobile Engineer</span>
-            <span>React Native · iOS</span>
-          </div>
-    
-          <h2 class="hero-title">
-            I build mobile experiences that feel fast, intentional, and quietly premium.
-          </h2>
-    
-          <p class="hero-sub">
-            With 6+ years across telematics, operations, and enterprise mobility, I design and ship apps
-            that balance architecture, UI feel, and real‑world performance.
+    <!-- HERO -->
+    <section class="section-wrap">
+      <div class="hero">
+        <div>
+          <div class="hero-eyebrow">Available for new roles</div>
+          <h1 class="hero-name">I build mobile apps<br>that feel <em>truly native.</em></h1>
+          <p class="hero-desc">Nivedhitha Parthasarathy — Senior Mobile Engineer with 6+ years across telematics, fleet
+            operations, and EV mobility. React Native &amp; iOS apps that are fast, intentional, and quietly premium.
           </p>
-    
-          <div class="hero-cta">
-            <a href="#work" class="btn-primary">See my work</a>
-            <a href="#contact" class="btn-ghost">Let’s talk →</a>
+          <div class="hero-stats">
+            <div class="stat-item"><span class="stat-num">6+</span><span class="stat-label">Years</span></div>
+            <div class="stat-divider"></div>
+            <div class="stat-item"><span class="stat-num">4</span><span class="stat-label">Products shipped</span></div>
+            <div class="stat-divider"></div>
+            <div class="stat-item"><span class="stat-num">40%</span><span class="stat-label">Perf. gains</span></div>
+          </div>
+          <div class="hero-actions">
+            <a href="#work" class="btn-gold">See my work <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></a>
+            <a href="#contact" class="btn-outline">Let's talk &rarr;</a>
           </div>
         </div>
-    
-        <!-- Right column: dual floating devices -->
-        <div class="hero-devices">
-          <div class="device ios">
-            <div class="device-frame">
-              <img src="assets/screenshots/assetmatics-score.png" alt="iOS screen" />
+        <div class="hero-visual">
+          <div class="hero-glow"></div>
+          <div class="phones-stack" id="heroPhones">
+            <div class="phone-back">
+              <div class="phone-frame"><img class="phone-screen-img" src="assets/fleetlive-dashboard.png" alt="" />
+              </div>
+            </div>
+            <div class="phone-front">
+              <div class="phone-frame"><img class="phone-screen-img" src="assets/assetmatics-location.png" alt="" />
+              </div>
             </div>
           </div>
-    
-          <div class="device android">
-            <div class="device-frame">
-              <img src="assets/screenshots/fleetlive-tracking.png" alt="Android screen" />
-            </div>
-          </div>
-        </div>
-    
-      </div>
-    </section>
-    
-
-    <section id="work" class="work">
-      <h2 class="work-heading">Selected Work</h2>
-      <p class="work-sub">A few products I’ve helped design, build, and ship.</p>
-
-      <div class="work-track-wrapper">
-        <div class="work-track" id="workTrack">
-
-          <!-- CARD 1 -->
-          <article class="work-card active">
-            <div class="work-device">
-              <div class="work-device-inner">
-                <img src="assets/screenshots/assetmatics-location.png" alt="Assetmatics app" />
-              </div>
-            </div>
-
-            <div class="work-content">
-              <h3>Assetmatics — Telematics in your pocket</h3>
-              <p>
-                A real‑time fleet tracking experience built for clarity.
-                Designed the mobile architecture, UI feel, and performance layer.
-              </p>
-              <div class="work-tags">
-                <span>React Native</span>
-                <span>iOS</span>
-                <span>Architecture</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- CARD 2 -->
-          <article class="work-card">
-            <div class="work-device">
-              <div class="work-device-inner">
-                <img src="assets/screenshots/fleetlive-dashboard.png" alt="Fleetlive app" />
-              </div>
-            </div>
-
-            <div class="work-content">
-              <h3>Fleetlive — Operations simplified</h3>
-              <p>
-                A dashboard for fleet operations teams.
-                Built the mobile UI system and improved load performance by 40%.
-              </p>
-              <div class="work-tags">
-                <span>Analytics</span>
-                <span>Performance</span>
-                <span>UI Systems</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- CARD 3 -->
-          <article class="work-card">
-            <div class="work-device">
-              <div class="work-device-inner">
-                <img src="assets/screenshots/ev-charging.png" alt="EV charging app" />
-              </div>
-            </div>
-
-            <div class="work-content">
-              <h3>EV Charging — Predictable charging UX</h3>
-              <p>
-                Designed a calm, predictable EV charging flow with clear state transitions
-                and a friction‑free user journey.
-              </p>
-              <div class="work-tags">
-                <span>EV</span>
-                <span>UX</span>
-                <span>React Native</span>
-              </div>
-            </div>
-          </article>
-
         </div>
       </div>
     </section>
 
-    <section id="experience" class="experience">
-      <h2 class="exp-heading">Experience</h2>
+    <!-- WORK -->
+    <section id="work">
+      <div class="work-header reveal">
+        <div class="section-eyebrow">Selected work</div>
+        <h2 class="section-heading">Products I've helped ship</h2>
+        <p class="section-sub">Swipe or click through four production apps — tap a screen to bring it to the front.</p>
+      </div>
 
-      <div class="exp-list">
+      <div class="carousel-outer" id="carouselOuter">
+        <div class="carousel-track" id="carouselTrack"></div>
+      </div>
 
+      <div class="carousel-controls">
+        <div class="carousel-dots" id="carouselDots"></div>
+        <div class="carousel-arrows">
+          <button class="carr-arrow" id="arrPrev" aria-label="Previous">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <button class="carr-arrow" id="arrNext" aria-label="Next">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section-wrap" style="padding-top:0;">
+      <div style="margin-bottom:3rem;" class="reveal">
+        <div class="section-eyebrow">Experience</div>
+        <h2 class="section-heading">Where I've worked</h2>
+      </div>
+      <div class="exp-timeline reveal">
         <div class="exp-item">
-          <h3>Nesh — Senior Software Engineer (React Native)</h3>
-          <p>
-            Built connected‑car and telematics experiences that simplify complex vehicle data for everyday users.
-            Focused on UI clarity, predictable flows, and performance.
-          </p>
-          <div class="exp-tags">
-            <span>React Native</span>
-            <span>iOS</span>
-            <span>Telematics</span>
+          <div>
+            <div class="exp-dot"></div>
+          </div>
+          <div>
+            <div class="exp-role">Senior Software Engineer — React Native</div>
+            <div class="exp-company">Nesh &nbsp;<span style="color:var(--text-muted);font-weight:400;">· Apr 2022 – Sep
+                2024 · Chennai, India</span></div>
+            <p class="exp-desc">Reduced technical debt by 40% and sustained a 98%+ crash-free rate by migrating a
+              high-volume telematics app from class-based to functional architecture — TypeScript throughout, Redux Saga
+              for async state, and a reusable component library shared across feature teams. Shipped
+              performance-sensitive real-time data features on a weekly cadence, owning end-to-end scoping,
+              implementation, and release. Cut build and release cycle time by designing CI/CD pipelines with GitHub
+              Actions and Fastlane — enabling zero-touch weekly deployments to both App Store and Google Play. Improved
+              release confidence by introducing feature flags and integration test coverage with Jest and Detox.</p>
+            <div class="exp-tags"><span class="tag">React Native</span><span class="tag">TypeScript</span><span
+                class="tag">Redux Saga</span><span class="tag">iOS &amp; Android</span><span class="tag">GitHub
+                Actions</span><span class="tag">Fastlane</span><span class="tag">Jest / Detox</span></div>
           </div>
         </div>
-
         <div class="exp-item">
-          <h3>Sensiple — System Analyst (iOS & Backend)</h3>
-          <p>
-            Designed and shipped production‑grade mobile features across enterprise mobility, fleet operations,
-            and EV ecosystems. Improved architecture, stability, and release pipelines.
-          </p>
-          <div class="exp-tags">
-            <span>iOS</span>
-            <span>Architecture</span>
-            <span>API Design</span>
+          <div>
+            <div class="exp-dot" style="background:var(--text-muted);box-shadow:none;"></div>
+          </div>
+          <div>
+            <div class="exp-role">System Analyst — iOS &amp; Backend</div>
+            <div class="exp-company">Sensiple &nbsp;<span style="color:var(--text-muted);font-weight:400;">· May 2018 –
+                Apr 2022 · Chennai, India</span></div>
+            <p class="exp-desc">Improved API throughput and reduced internal system downtime by rebuilding backend
+              workflow services in C# and ASP.NET, eliminating bottlenecks in a business process automation platform
+              serving multiple enterprise clients. Prototyped secure, high-precision iOS interfaces in Swift using MVVM
+              architecture — establishing component and data-layer patterns later adopted as the team standard for
+              financial application development. Delivered end-to-end features across 4 years in a cross-functional
+              Agile team, consistently scoping work into testable tasks and maintaining UI performance under tight
+              sprint cadence.</p>
+            <div class="exp-tags"><span class="tag">Swift</span><span class="tag">iOS</span><span
+                class="tag">MVVM</span><span class="tag">C#</span><span class="tag">ASP.NET</span><span class="tag">REST
+                APIs</span><span class="tag">Agile</span></div>
           </div>
         </div>
-
+        <div class="exp-item">
+          <div>
+            <div class="exp-dot" style="background:var(--text-muted);box-shadow:none;"></div>
+          </div>
+          <div>
+            <div class="exp-role">Independent Upskilling &amp; Relocation</div>
+            <div class="exp-company">Self-directed &nbsp;<span style="color:var(--text-muted);font-weight:400;">· Oct
+                2024 – Present · Amsterdam, Netherlands</span></div>
+            <p class="exp-desc">Built <a href="https://github.com/nivedhitha97/SmartGroceryApp" target="_blank"
+                style="color:var(--gold);text-decoration:none;">SmartGroceryApp</a> — a SwiftUI iOS app with full MVVM
+              architecture, Combine-driven state management, and a Codable JSON service layer — using Cursor and Claude
+              as an AI-assisted development workflow. Expanding into full-stack development with GitHub Copilot, Cursor,
+              and Claude as daily accelerators for code generation, debugging, and architectural decision-making.</p>
+            <div class="exp-tags"><span class="tag">SwiftUI</span><span class="tag">MVVM</span><span
+                class="tag">Combine</span><span class="tag">Cursor</span><span class="tag">GitHub Copilot</span><span
+                class="tag">AI-assisted dev</span></div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="architecture" class="architecture">
-      <h2 class="arch-heading">How I structure mobile apps</h2>
-      <p class="arch-sub">
-        A predictable, scalable architecture that keeps features isolated, flows clear, and performance stable.
-      </p>
-
+    <!-- ARCHITECTURE -->
+    <section id="architecture" class="section-wrap" style="padding-top:0;">
+      <div style="margin-bottom:3rem;" class="reveal">
+        <div class="section-eyebrow">Engineering principles</div>
+        <h2 class="section-heading">How I structure mobile apps</h2>
+        <p class="section-sub">A predictable, scalable architecture that keeps features isolated, flows clear, and
+          performance stable.</p>
+      </div>
       <div class="arch-grid">
-
-        <div class="arch-card">
-          <h3>Feature‑oriented modules</h3>
-          <p>
-            Screens, logic, and UI live together inside feature folders.
-            Clear boundaries, no cross‑feature leakage.
-          </p>
+        <div class="arch-card reveal">
+          <div class="arch-icon"><svg viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" rx="1" />
+              <rect x="14" y="3" width="7" height="7" rx="1" />
+              <rect x="3" y="14" width="7" height="7" rx="1" />
+              <rect x="14" y="14" width="7" height="7" rx="1" />
+            </svg></div>
+          <div class="arch-title">Feature-oriented modules</div>
+          <p class="arch-desc">Screens, logic, and UI live together inside feature folders. Clear boundaries, no
+            cross-feature leakage.</p>
         </div>
-
-        <div class="arch-card">
-          <h3>State that behaves</h3>
-          <p>
-            Local UI state stays local.
-            Shared state lives in predictable containers with typed actions.
-          </p>
+        <div class="arch-card reveal" style="transition-delay:0.08s">
+          <div class="arch-icon"><svg viewBox="0 0 24 24">
+              <path
+                d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
+            </svg></div>
+          <div class="arch-title">State that behaves</div>
+          <p class="arch-desc">Local UI state stays local. Shared state lives in predictable containers with typed
+            actions.</p>
         </div>
-
-        <div class="arch-card">
-          <h3>Networking that fails gracefully</h3>
-          <p>
-            A clean API layer with retry logic, caching, and offline‑first patterns.
-          </p>
+        <div class="arch-card reveal" style="transition-delay:0.16s">
+          <div class="arch-icon"><svg viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg></div>
+          <div class="arch-title">Networking that fails gracefully</div>
+          <p class="arch-desc">A clean API layer with retry logic, caching, and offline-first patterns that users never
+            notice until they need them.</p>
         </div>
-
-        <div class="arch-card">
-          <h3>Release‑ready pipeline</h3>
-          <p>
-            OTA updates, crash analytics, automated builds, and stable release channels.
-          </p>
+        <div class="arch-card reveal" style="transition-delay:0.24s">
+          <div class="arch-icon"><svg viewBox="0 0 24 24">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg></div>
+          <div class="arch-title">Release-ready pipeline</div>
+          <p class="arch-desc">OTA updates, crash analytics, automated builds, and stable release channels so every
+            deploy is a non-event.</p>
         </div>
-
       </div>
     </section>
 
-    <section id="contact" class="contact">
-      <h2 class="contact-heading">Let’s talk</h2>
-      <p class="contact-sub">
-        I’m always open to discussing mobile engineering, product design, or new opportunities.
-      </p>
-
-      <div class="contact-box">
-        <p>Email</p>
-        <a href="mailto:nivedhithapsarati@gmail.com">nivedhithapsarati@gmail.com</a>
+    <!-- CONTACT -->
+    <section id="contact" class="section-wrap" style="padding-top:0;padding-bottom:8rem;">
+      <div class="contact-inner reveal">
+        <div>
+          <div class="section-eyebrow">Get in touch</div>
+          <h2 class="contact-heading">Let's build something <em>worth using.</em></h2>
+          <p class="contact-sub">Always open to discussing mobile engineering, product design, or new opportunities.</p>
+          <a href="mailto:nivedhithapsarati@gmail.com" class="btn-gold">Send an email</a>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-row">
+            <div class="contact-row-icon"><svg viewBox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg></div>
+            <div>
+              <div class="contact-row-label">Email</div>
+              <div class="contact-row-val"><a href="mailto:nivedhithapsarati@gmail.com">nivedhithapsarati@gmail.com</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-row-icon"><svg viewBox="0 0 24 24">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                <circle cx="4" cy="4" r="2" />
+              </svg></div>
+            <div>
+              <div class="contact-row-label">LinkedIn</div>
+              <div class="contact-row-val"><a href="https://linkedin.com/in/nivedhitha"
+                  target="_blank">linkedin.com/in/nivedhitha</a></div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-row-icon"><svg viewBox="0 0 24 24">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+              </svg></div>
+            <div>
+              <div class="contact-row-label">GitHub</div>
+              <div class="contact-row-val"><a href="https://github.com/nivedhitha"
+                  target="_blank">github.com/nivedhitha</a></div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <a href="mailto:nivedhithapsarati@gmail.com" class="contact-btn">Let’s keep in touch →</a>
     </section>
 
   </main>
+
   <script>
-    const track = document.getElementById('workTrack');
-    const cards = Array.from(document.querySelectorAll('.work-card'));
+    const IMGS = {
+      "AA": "assets/assetmatics-alerts.png",
+      "AL": "assets/assetmatics-location.png",
+      "AS": "assets/assetmatics-score.png",
+      "AT": "assets/assetmatics-trip-details.png",
+      "FD": "assets/fleetlive-dashboard.png",
+      "FT": "assets/fleetlive-tracking.png",
+      "FR": "assets/fleetlive-trips.png",
+      "FV": "assets/fleetlive-vehicle-summary.png",
+      "MP": "assets/montra-profile.png",
+      "MV": "assets/montra-vehicle-management.png",
+      "YR": "assets/mytvs-vehicle-report.png",
+      "YS": "assets/mytvs-vehicle-summary.png",
+    };
+    const PROJECTS = [{ "id": "assetmatics", "title": "Assetmatics", "accent": "#F5A623", "accentRgb": "245,166,35", "tagline": "Real-time vehicle intelligence for connected fleets", "about": "A telematics mobile app that gives fleet operators live visibility into every vehicle \u2014 location, speed, driver behaviour, and alerts \u2014 all from a single intuitive interface. Built for iOS with a focus on performance and clarity.", "contributions": ["Architected the full React Native mobile codebase from scratch \u2014 feature modules, navigation stack, and shared component library", "Built the real-time location screen with live map updates, route history, and vehicle status overlays", "Designed and implemented the driver scoring engine UI \u2014 circular progress rings, monthly comparisons, and trip breakdowns", "Created the configurable alerts system with per-event toggles for overspeed, harsh braking, idle, and theft detection", "Optimised FlatList rendering and reduced JS thread jank by 40% through memoisation and windowed rendering"], "tags": ["React Native", "iOS", "Telematics", "Maps", "Real-time"], "screens": [["AL", "Location map"], ["AS", "Driver score"], ["AT", "Trip details"], ["AA", "Alert settings"]] }, { "id": "fleetlive", "title": "Fleetlive", "accent": "#7B8FF5", "accentRgb": "123,143,245", "tagline": "EV fleet operations dashboard for large delivery networks", "about": "An enterprise fleet management app serving delivery companies operating EV two-wheelers across multiple cities. Provides real-time tracking, trip analytics, vehicle health, and energy efficiency reporting for fleet managers on the go.", "contributions": ["Led mobile UI development end-to-end \u2014 from design handoff to production release on Android", "Built the live fleet tracking screen with animated vehicle markers and status filters (Moving / Charging / Stop / Offline)", "Implemented the trip history module with paginated data tables, date range selectors, and CAN odometer data", "Developed the Vehicle Summary screen showing per-vehicle distance, energy efficiency (km/kWh), and charging counts", "Improved initial screen load time by 40% through lazy fetching, skeleton loaders, and API response caching"], "tags": ["React Native", "Android", "EV Fleet", "Analytics", "Performance"], "screens": [["FT", "Live tracking"], ["FD", "Fleet dashboard"], ["FV", "Vehicle summary"], ["FR", "Trip reports"]] }, { "id": "montra", "title": "Montra", "accent": "#4ADE80", "accentRgb": "74,222,128", "tagline": "Connected vehicle companion for EV riders", "about": "A consumer-facing app for Montra Electric Vehicle riders, combining vehicle management, driver scoring, security controls, and servicing tools into one seamless experience. Designed for non-technical everyday users.", "contributions": ["Designed and built the driver profile screen \u2014 circular score ring, emergency contacts, and quick-access vehicle actions", "Implemented the vehicle management hub with Security, Pocket Mechanic, and Servicing & Maintenance modules", "Built the service due tracker with dual circular progress rings showing km and days remaining", "Integrated SOS emergency button with one-tap emergency contact notification", "Collaborated with the backend team to define REST API contracts for vehicle telemetry and user profile data"], "tags": ["iOS", "EV", "Connected Vehicle", "Consumer UX", "REST API"], "screens": [["MV", "Vehicle management"], ["MP", "Driver profile"]] }, { "id": "mytvs", "title": "MyTVS", "accent": "#60A5FA", "accentRgb": "96,165,250", "tagline": "Enterprise fleet reporting for large commercial operations", "about": "A B2B fleet analytics app used by enterprise clients to monitor large vehicle fleets. Provides detailed per-vehicle reports on distance, speed, idle time, alert counts, and driver behaviour.", "contributions": ["Built the Vehicle Summary module with fleet hierarchy switching (zone \u2192 dealer \u2192 fleet) and date range filtering", "Developed the Report Detail screen with odometer tracking, speed gauges, and categorised alert breakdown", "Implemented dual-mode time window toggle (4AM / 12AM shift boundaries) for accurate fleet reporting", "Created reusable data table components with horizontal scrolling for multi-column vehicle metrics", "Worked on backend API integration for CAN bus data ingestion and normalisation"], "tags": ["iOS", "Backend", "Fleet Analytics", "B2B", "API Design"], "screens": [["YR", "Report detail"], ["YS", "Vehicle summary"]] }];
 
-    function updateActiveCard() {
-      if (!track || !cards.length) return;
+    // ── State ──
+    let currentProj = 0;
+    // activeScreen[projIdx] = screenIdx within that project
+    const activeScreen = PROJECTS.map(() => 0);
 
-      const trackRect = track.getBoundingClientRect();
-      const centerX = trackRect.left + trackRect.width / 2;
+    // ── Build cards ──
+    const track = document.getElementById('carouselTrack');
+    const dotsEl = document.getElementById('carouselDots');
 
-      let closest = null;
-      let minDist = Infinity;
+    PROJECTS.forEach((p, pi) => {
+      // Dot
+      const dot = document.createElement('div');
+      dot.className = 'carousel-dot' + (pi === 0 ? ' active' : '');
+      dot.addEventListener('click', () => goToProj(pi));
+      dotsEl.appendChild(dot);
 
-      cards.forEach(card => {
-        const rect = card.getBoundingClientRect();
-        const cardCenter = rect.left + rect.width / 2;
-        const dist = Math.abs(centerX - cardCenter);
-        if (dist < minDist) {
-          minDist = dist;
-          closest = card;
+      // Card
+      const card = document.createElement('div');
+      card.className = 'proj-card' + (pi === 0 ? ' active' : '');
+      card.dataset.pi = pi;
+      card.style.setProperty('--card-accent-rgba', `rgba(${p.accentRgb},0.35)`);
+      card.style.setProperty('--card-glow', `rgba(${p.accentRgb},0.12)`);
+
+      card.innerHTML = buildCardHTML(p, pi);
+      track.appendChild(card);
+
+      // Click inactive card → navigate to it
+      card.addEventListener('click', (e) => {
+        if (pi !== currentProj && !e.target.closest('.card-tab') && !e.target.closest('.phone-slot') && !e.target.closest('.screen-dot')) {
+          goToProj(pi);
         }
-      });
-
-      if (!closest) return;
-
-      cards.forEach(c => c.classList.remove('active'));
-      closest.classList.add('active');
-    }
-
-    let ticking = false;
-
-    if (track) {
-      track.addEventListener('scroll', () => {
-        if (!ticking) {
-          requestAnimationFrame(() => {
-            updateActiveCard();
-            ticking = false;
-          });
-          ticking = true;
-        }
-      });
-    }
-
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
-        if (!track) return;
-        const rect = card.getBoundingClientRect();
-        const trackRect = track.getBoundingClientRect();
-        const offset = rect.left - trackRect.left - (trackRect.width - rect.width) / 2;
-
-        track.scrollBy({
-          left: offset,
-          behavior: 'smooth'
-        });
       });
     });
 
-    // Initial state
-    updateActiveCard();
-  </script>
+    function buildCardHTML(p, pi) {
+      const screensHTML = p.screens.map((s, si) => {
+        const slotClass = si === 0 ? 'slot-active' : `slot-right-${Math.min(si, 2)}`;
+        return `<div class="phone-slot ${slotClass}" data-pi="${pi}" data-si="${si}">
+      <div class="phone-bezel"><img src="${IMGS[s[0]]}" alt="${s[1]}" loading="lazy"/></div>
+    </div>`;
+      }).join('');
 
-  <script>
-    const heroFrame = document.querySelector('.hero-device-frame');
+      const dotsHTML = p.screens.map((_, si) =>
+        `<div class="screen-dot${si === 0 ? ' active' : ''}" data-pi="${pi}" data-si="${si}"></div>`
+      ).join('');
 
-    if (heroFrame) {
-      heroFrame.addEventListener('mousemove', (e) => {
-        const rect = heroFrame.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
+      const contribHTML = p.contributions.map(c =>
+        `<li class="contrib-item"><span class="contrib-bullet" style="background:${p.accent}"></span><span>${c}</span></li>`
+      ).join('');
 
-        heroFrame.style.transform =
-          `rotateX(${(-y / 20)}deg) rotateY(${x / 20}deg) translateY(-4px) scale(1.02)`;
+      const tagsHTML = p.tags.map(t => `<span class="tag">${t}</span>`).join('');
+
+      return `
+    <div class="card-phone-stage">
+      <div class="stage-glow" style="background:${p.accent};"></div>
+      ${screensHTML}
+      <div class="screen-dots">${dotsHTML}</div>
+    </div>
+    <div class="card-content">
+      <div class="card-accent-bar" style="background:${p.accent};"></div>
+      <div class="card-title">${p.title}</div>
+      <div class="card-tagline">${p.tagline}</div>
+      <div class="card-tabs">
+        <div class="card-tab active" data-pi="${pi}" data-tab="about">About</div>
+        <div class="card-tab" data-pi="${pi}" data-tab="contributions">My contributions</div>
+      </div>
+      <div class="card-pane active" data-pi="${pi}" data-pane="about">
+        <p class="card-about">${p.about}</p>
+      </div>
+      <div class="card-pane" data-pi="${pi}" data-pane="contributions">
+        <ul class="contrib-list">${contribHTML}</ul>
+      </div>
+      <div class="card-tags">${tagsHTML}</div>
+    </div>`;
+    }
+
+    // ── Card class updates ──
+    function updateCardClasses() {
+      document.querySelectorAll('.proj-card').forEach((card, i) => {
+        const diff = i - currentProj;
+        card.classList.remove('active', 'adjacent');
+        if (diff === 0) card.classList.add('active');
+        else if (Math.abs(diff) === 1) card.classList.add('adjacent');
+      });
+      document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === currentProj);
+      });
+      document.getElementById('arrPrev').disabled = currentProj === 0;
+      document.getElementById('arrNext').disabled = currentProj === PROJECTS.length - 1;
+    }
+
+    // ── Carousel positioning ──
+    function positionTrack() {
+      const card = track.children[currentProj];
+      if (!card) return;
+      const cardW = card.getBoundingClientRect().width || 680;
+      const gap = 32;
+      // Left-aligned: card[0] at padding-left (32px). Shift by i*(cardW+gap).
+      const shift = currentProj * (cardW + gap);
+      track.style.transform = `translateX(${-shift}px)`;
+    }
+
+    function goToProj(idx) {
+      if (idx < 0 || idx >= PROJECTS.length) return;
+      currentProj = idx;
+      positionTrack();
+      updateCardClasses();
+    }
+
+    // ── Screen switching inside a card ──
+    function setActiveScreen(pi, si) {
+      activeScreen[pi] = si;
+      const card = track.children[pi];
+      if (!card) return;
+
+      const slots = card.querySelectorAll('.phone-slot');
+      const n = slots.length;
+
+      slots.forEach((slot, i) => {
+        slot.classList.remove('slot-active', 'slot-left-1', 'slot-left-2', 'slot-right-1', 'slot-right-2', 'slot-hidden');
+        const rel = i - si;
+        if (rel === 0) slot.classList.add('slot-active');
+        else if (rel === -1) slot.classList.add('slot-left-1');
+        else if (rel <= -2) slot.classList.add('slot-left-2');
+        else if (rel === 1) slot.classList.add('slot-right-1');
+        else if (rel >= 2) slot.classList.add('slot-right-2');
       });
 
-      heroFrame.addEventListener('mouseleave', () => {
-        heroFrame.style.transform =
-          'rotateX(0deg) rotateY(0deg) translateY(0) scale(1)';
+      card.querySelectorAll('.screen-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === si);
       });
     }
-  </script>
 
-  <script>
-    const devices = document.querySelectorAll('.device');
+    // ── Event delegation ──
+    track.addEventListener('click', e => {
+      // Phone slot click
+      const slot = e.target.closest('.phone-slot');
+      if (slot) {
+        const pi = +slot.dataset.pi;
+        const si = +slot.dataset.si;
+        if (pi === currentProj && si !== activeScreen[pi]) {
+          setActiveScreen(pi, si);
+        }
+        return;
+      }
 
-    devices.forEach(device => {
-      device.addEventListener('mousemove', (e) => {
-        const rect = device.getBoundingClientRect();
-        const x = (e.clientX - rect.left - rect.width / 2) / 30;
-        const y = (e.clientY - rect.top - rect.height / 2) / 30;
+      // Screen dot click
+      const sdot = e.target.closest('.screen-dot');
+      if (sdot) {
+        const pi = +sdot.dataset.pi;
+        const si = +sdot.dataset.si;
+        if (pi === currentProj) setActiveScreen(pi, si);
+        return;
+      }
 
-        device.style.transform =
-          `translateY(12px) rotateX(${6 - y}deg) rotateY(${device.classList.contains('ios') ? -14 + x : 14 + x}deg)`;
-      });
-
-      device.addEventListener('mouseleave', () => {
-        const tilt = device.classList.contains('ios') ? -14 : 14;
-        device.style.transform =
-          `translateY(18px) rotateX(6deg) rotateY(${tilt}deg)`;
-      });
+      // Card tab click
+      const tab = e.target.closest('.card-tab');
+      if (tab) {
+        const pi = +tab.dataset.pi;
+        const card = track.children[pi];
+        card.querySelectorAll('.card-tab').forEach(t => t.classList.remove('active'));
+        card.querySelectorAll('.card-pane').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        card.querySelector(`[data-pane="${tab.dataset.tab}"]`).classList.add('active');
+      }
     });
+
+    // ── Arrow buttons ──
+    document.getElementById('arrPrev').addEventListener('click', () => goToProj(currentProj - 1));
+    document.getElementById('arrNext').addEventListener('click', () => goToProj(currentProj + 1));
+
+    // ── Touch/drag swipe on carousel ──
+    let dragStartX = 0, dragStartY = 0, dragDelta = 0, isDragging = false, isHorizSwipe = null;
+
+    const swipeTarget = document.getElementById('carouselOuter');
+
+    swipeTarget.addEventListener('mousedown', e => {
+      isDragging = true;
+      dragStartX = e.clientX;
+      dragDelta = 0;
+      track.style.transition = 'none';
+    });
+    window.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      dragDelta = e.clientX - dragStartX;
+    });
+    window.addEventListener('mouseup', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      track.style.transition = '';
+      if (Math.abs(dragDelta) > 50) {
+        goToProj(dragDelta < 0 ? currentProj + 1 : currentProj - 1);
+      } else {
+        positionTrack();
+      }
+    });
+
+    // Touch: detect horizontal vs vertical intent after first move
+    swipeTarget.addEventListener('touchstart', e => {
+      dragStartX = e.changedTouches[0].clientX;
+      dragStartY = e.changedTouches[0].clientY;
+      isHorizSwipe = null;
+    }, { passive: true });
+
+    swipeTarget.addEventListener('touchmove', e => {
+      if (isHorizSwipe === null) {
+        const dx = Math.abs(e.changedTouches[0].clientX - dragStartX);
+        const dy = Math.abs(e.changedTouches[0].clientY - dragStartY);
+        isHorizSwipe = dx > dy;
+      }
+      // Prevent page scroll only when swiping horizontally
+      if (isHorizSwipe) e.preventDefault();
+    }, { passive: false });
+
+    swipeTarget.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - dragStartX;
+      if (isHorizSwipe && Math.abs(dx) > 45) {
+        goToProj(dx < 0 ? currentProj + 1 : currentProj - 1);
+      }
+      isHorizSwipe = null;
+    }, { passive: true });
+
+    // ── Hero tilt ──
+    const heroPhones = document.getElementById('heroPhones');
+    document.addEventListener('mousemove', e => {
+      if (!heroPhones) return;
+      const dx = (e.clientX / window.innerWidth - 0.5) * 14;
+      const dy = (e.clientY / window.innerHeight - 0.5) * 9;
+      heroPhones.querySelector('.phone-front').style.transform = `rotateY(${dx}deg) rotateX(${-dy}deg)`;
+    });
+
+    // ── Scroll reveal ──
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => io.observe(el));
+
+    // ── Init ──
+    window.addEventListener('resize', positionTrack);
+    setTimeout(positionTrack, 100);
+    updateCardClasses();
   </script>
-
-
-
 </body>
 
 </html>
