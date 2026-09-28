@@ -3,8 +3,9 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Nivedhitha Parthasarathy — Senior Mobile Engineer</title>
+  <title>Nivedhitha Parthasarathy — Front-End &amp; Mobile Engineer</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Front-End &amp; Mobile Engineer (React, React Native, iOS) based in Amsterdam. Portfolio of production apps across telematics, fleet operations and EV mobility." />
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
     rel="stylesheet">
@@ -667,6 +668,36 @@
       border-radius: 100px;
     }
 
+    .card-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 0.9rem;
+    }
+
+    .store-link {
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      border: 1px solid var(--card-accent-rgba, rgba(255, 255, 255, 0.2));
+      padding: 0.3rem 0.75rem;
+      border-radius: 100px;
+      transition: background 0.2s ease;
+    }
+
+    .store-link:hover,
+    .store-link:focus-visible {
+      background: var(--card-glow, rgba(255, 255, 255, 0.08));
+    }
+
+    .store-note {
+      font-size: 0.72rem;
+      font-style: italic;
+      color: var(--text-sub);
+    }
+
     /* ── CAROUSEL CONTROLS ── */
     .carousel-controls {
       max-width: 1100px;
@@ -1038,7 +1069,7 @@
         <div>
           <div class="hero-eyebrow">Available for new roles</div>
           <h1 class="hero-name">I build mobile apps<br>that feel <em>truly native.</em></h1>
-          <p class="hero-desc">Nivedhitha Parthasarathy — Senior Mobile Engineer with 6+ years across telematics, fleet
+          <p class="hero-desc">Nivedhitha Parthasarathy — Front-End &amp; Mobile Engineer with 6+ years across telematics, fleet
             operations, and EV mobility. React Native &amp; iOS apps that are fast, intentional, and quietly premium.
           </p>
           <div class="hero-stats">
@@ -1046,7 +1077,7 @@
             <div class="stat-divider"></div>
             <div class="stat-item"><span class="stat-num">4</span><span class="stat-label">Products shipped</span></div>
             <div class="stat-divider"></div>
-            <div class="stat-item"><span class="stat-num">40%</span><span class="stat-label">Perf. gains</span></div>
+            <div class="stat-item"><span class="stat-num">40%</span><span class="stat-label">Less tech debt</span></div>
           </div>
           <div class="hero-actions">
             <a href="#work" class="btn-gold">See my work <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
@@ -1077,7 +1108,7 @@
       <div class="work-header reveal">
         <div class="section-eyebrow">Selected work</div>
         <h2 class="section-heading">Products I've helped ship</h2>
-        <p class="section-sub">Swipe or click through four production apps — tap a screen to bring it to the front.</p>
+        <p class="section-sub">Swipe or click through four production apps — tap a screen to bring it to the front. Screenshots are from the public App Store / Google Play listings.</p>
       </div>
 
       <div class="carousel-outer" id="carouselOuter">
@@ -1247,8 +1278,8 @@
               </svg></div>
             <div>
               <div class="contact-row-label">LinkedIn</div>
-              <div class="contact-row-val"><a href="https://linkedin.com/in/nivedhithap/"
-                  target="_blank">linkedin.com/in/nivedhithap</a></div>
+              <div class="contact-row-val"><a href="https://www.linkedin.com/in/nivedhithap/"
+                  target="_blank" rel="noopener noreferrer">linkedin.com/in/nivedhithap</a></div>
             </div>
           </div>
           <div class="contact-row">
@@ -1259,7 +1290,7 @@
             <div>
               <div class="contact-row-label">GitHub</div>
               <div class="contact-row-val"><a href="https://github.com/nivedhitha97"
-                  target="_blank">github.com/nivedhitha97</a></div>
+                  target="_blank" rel="noopener noreferrer">github.com/nivedhitha97</a></div>
             </div>
           </div>
         </div>
@@ -1287,6 +1318,22 @@
                       { "id": "fleetlive", "title": "Fleetlive", "accent": "#7B8FF5", "accentRgb": "123,143,245", "tagline": "EV fleet monitoring app \u2014 built from scratch to production", "about": "An enterprise EV fleet monitoring app for delivery companies operating two-wheelers across multiple cities. I owned this product end-to-end \u2014 from base architecture through every major feature to production release.", "contributions": ["Built the entire app from base architecture to production \u2014 designed the codebase structure, navigation, and data layer", "Implemented all major features: dashboard, live tracking, vehicle summaries, trip reports, and vehicle insights", "Designed and optimised map rendering, marker clustering, and real-time vehicle position updates", "Integrated FCM push notifications and Firebase Analytics for event tracking across the app", "Performed code restructuring, performance tuning, and image optimisation to improve load times", "Wrote API documentation in Postman and reported API vulnerabilities to the backend team", "Managed app versioning, store uploads, production hotfixes, and full release cycles end-to-end"], "tags": ["React Native", "Android", "Firebase", "FCM", "Maps", "Postman", "EV Fleet"], "screens": [["FT", "Live tracking"], ["FD", "Fleet dashboard"], ["FV", "Vehicle summary"], ["FR", "Trip reports"]] }, 
                       { "id": "mytvs", "title": "MyTVS DrivePlus", "accent": "#60A5FA", "accentRgb": "96,165,250", "tagline": "Vehicle management app \u2014 first-version feature build", "about": "A B2B vehicle management and fleet reporting app for enterprise clients. I worked on the initial version, building the foundational features that defined the app's structure and user experience.", "contributions": ["Built the initial app features from the ground up \u2014 login, dashboard, vehicle details, and data-driven UI screens", "Developed data-driven UI components that rendered live vehicle metrics, odometer readings, and alert breakdowns", "Ensured clean UI hierarchy and mobile-friendly layouts across different screen sizes", "Established the visual and structural patterns used as the baseline for subsequent app development"], "tags": ["iOS", "React Native", "UI Development", "Fleet Analytics", "B2B"], "screens": [["YR", "Report detail"], ["YS", "Vehicle summary"]] }, 
                       { "id": "montra", "title": "Montra Electric Driver", "accent": "#4ADE80", "accentRgb": "74,222,128", "tagline": "EV driver companion \u2014 deep infrastructure migration", "about": "A connected EV driver app for Montra Electric riders. My role was a deep engineering engagement \u2014 not UI work, but a critical infrastructure overhaul migrating the entire data layer to a new backend architecture.", "contributions": ["Migrated the entire data layer from AWS AppSync (GraphQL) to GCP REST API \u2014 a full backend integration overhaul", "Refactored all API integration logic to align with the new GCP backend structure and response contracts", "Upgraded React Native to a newer major version, resolving breaking changes across the dependency tree", "Updated and stabilised all supporting libraries affected by the RN version upgrade", "Ensured backward compatibility throughout the migration \u2014 no regressions to existing user-facing features", "Delivered a smooth, invisible migration: users saw no disruption; the engineering foundation was entirely replaced"], "tags": ["React Native", "GraphQL", "REST API", "AWS", "GCP", "Migration", "Infrastructure"], "screens": [["MV", "Vehicle management"], ["MP", "Driver profile"]] }];
+
+    // Public store listings for each product (Montra has been delisted)
+    const STORE_LINKS = {
+      assetmatics: [
+        { label: "App Store", url: "https://apps.apple.com/nl/app/assetmatics/id1604569404" }
+      ],
+      fleetlive: [
+        { label: "App Store", url: "https://apps.apple.com/in/app/fleetlive/id6455303398" },
+        { label: "Google Play", url: "https://play.google.com/store/apps/details?id=com.fleet.ev&hl=en" }
+      ],
+      mytvs: [
+        { label: "App Store", url: "https://apps.apple.com/in/app/mytvs-drive-plus/id6457254613" },
+        { label: "Google Play", url: "https://play.google.com/store/apps/details?id=com.nlcv.driveplus&hl=en" }
+      ],
+      montra: []
+    };
 
     // ── State ──
     let currentProj = 0;
@@ -1316,7 +1363,7 @@
 
       // Click inactive card → navigate to it
       card.addEventListener('click', (e) => {
-        if (pi !== currentProj && !e.target.closest('.card-tab') && !e.target.closest('.phone-slot') && !e.target.closest('.screen-dot')) {
+        if (pi !== currentProj && !e.target.closest('.card-tab') && !e.target.closest('.phone-slot') && !e.target.closest('.screen-dot') && !e.target.closest('.store-link')) {
           goToProj(pi);
         }
       });
@@ -1340,6 +1387,11 @@
 
       const tagsHTML = p.tags.map(t => `<span class="tag">${t}</span>`).join('');
 
+      const storeLinks = STORE_LINKS[p.id] || [];
+      const linksHTML = storeLinks.length
+        ? storeLinks.map(l => `<a class="store-link" href="${l.url}" target="_blank" rel="noopener noreferrer">${l.label} ↗</a>`).join('')
+        : `<span class="store-note">No longer listed on the App Store or Google Play</span>`;
+
       return `
     <div class="card-phone-stage">
       <div class="stage-glow" style="background:${p.accent};"></div>
@@ -1361,6 +1413,7 @@
         <ul class="contrib-list">${contribHTML}</ul>
       </div>
       <div class="card-tags">${tagsHTML}</div>
+      <div class="card-links">${linksHTML}</div>
     </div>`;
     }
 
